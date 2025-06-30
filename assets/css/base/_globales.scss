@@ -1,0 +1,65 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+
+
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-size: 1.8rem;
+    font-family: v.$fuente-principal;
+    font-weight: v.$regular;
+  
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+
+.pading{
+    padding: 2rem;
+}
+
+#parrafo {
+    transition: opacity 1s ease;
+}
+
+
+.alerta {
+
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
+
+    @include m.tablet{
+        font-size: 1.8rem;
+     }
+     @include m.desktop{
+        font-size: 2.1rem;
+     }
+
+
+}
+
+
+.exito {
+    padding: 2rem;
+    background-color: v.$negro;
+    color: v.$blanco;
+    border: rgb(255, 255, 255) .2rem double;
+}
+
+.correcion{
+    font-size: 2.1rem;
+}

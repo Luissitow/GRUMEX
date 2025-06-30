@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRUMEX | Soluciones en manufactura y Comercio Internacional</title>
+    <meta name="description" content="GRUMEX facilita la manufactura de productos y equipos industriales en México. Nos especializamos en logística, aduanas y distribución con calidad y confianza. ¡Cotiza ahora!">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+    <script src="assets/js/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin="" defer></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="/assets/css/slider.css">
+    <link rel="stylesheet" href="/assets/css/all.min.css">
+
+        <!-- Metadatos para Open Graph (OG) -->
+        <meta property="og:image" content="https://grumex.luxxodev.com/assets/img/GRUMEX/GRUMEX.png" />
+        <meta property="og:title" content="GRUMEX - Soluciones en manufactura y Comercio Internacional" />
+        <meta property="og:description" content="Expertos en manufactura de productos y equipos industriales en México. Facilitamos logística, aduanas y distribución con seguridad y confianza." />
+        <meta property="og:url" content="https://grumex.luxxodev.com/" />
+        <meta property="og:locale" content="es_MX" />
+        <meta property="og:site_name" content="Grupo Industrial Mexicano" />
+        <meta property="og:type" content="website" />
+
+        <!-- Metadatos para Twitter -->
+        <meta name="twitter:site" content="@GRUMEX2024" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="GRUMEX - manufactura y Comercio Internacional" />
+        <meta name="twitter:description" content="Facilitamos la manufactura de equipos y productos industriales con logística confiable en México. ¡Solicita una cotización hoy!" />        
+        <meta name="twitter:image" content="https://grumex.luxxodev.com/assets/img/GRUMEX/GRUMEX.png" />
+        <meta name="twitter:url" content="https://grumex.luxxodev.com/" />
+
+        <!-- Metadatos para SEO -->
+        <meta name="keywords" content="manufactura, comercio internacional, aduanas, logística, distribución, exportación, GRUMEX, Toluca, Metepec, proveedores internacionales">
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        <meta name="revisit-after" content="1 month">
+        <meta name="author" content="GRUMEX">
+        <meta name="distribution" content="global">
+        <meta name="rating" content="general">
+        <meta name="referrer" content="no-referrer-when-downgrade">
+        <meta name="theme-color" content="#000000">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <meta name="geo.region" content="MX-MEX" />
+        <meta name="geo.placename" content="Toluca, Estado de México" />
+        <meta name="geo.position" content="19.2826;-99.6557" />
+        <meta name="ICBM" content="19.2826, -99.6557" />
+
+
+        <!-- Canonical Tag -->
+        <link rel="canonical" href="https://grumex.luxxodev.com/" />
+
+        <!-- Dublin Core Metadata -->
+        <meta name="DC.title" content="GRUMEX - Servicios de manufactura">
+        <meta name="DC.description" content="GRUMEX  ofrece servicios de corte láser, doblez, pintura electroestática, soldadura y marmol . Calidad e innovación en manufactura.">
+        <meta name="DC.subject" content="corte láser, doblez, pintura electroestática, soldadura, marmol, Toluca, Metepec, manufactura, GRUMEX">
+        <meta name="DC.language" content="es-MX">
+
+        <!-- Alternate Tags -->
+        <link rel="alternate" hreflang="es" href="https://grumex.luxxodev.com/" /> 
+        <link rel="alternate" hreflang="en" href="https://grumex.luxxodev.com/en/" />
+
+        <!-- Favicon -->
+        <link rel="icon" href="/assets/img/GRUMEX/GRUMEXICO.ico" type="image/x-icon">
+        <link rel="icon" type="image/png" href="/assets/img/GRUMEX/GRUMEXICO.png" sizes="32x32" />
+
+            <!-- Structured Data (Schema.org) -->
+            <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "GRUMEX",
+                    "url": "https://grumex.luxxodev.com/",
+                    "logo": "https://grumex.luxxodev.com/assets/img/GRUMEX/iconoempresa.png",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "C. Laguna de la Gavia 600, El Seminario Tercera Secc",
+                        "addressLocality": "Toluca de Lerdo",
+                        "addressRegion": "MEX",
+                        "postalCode": "50170",
+                        "addressCountry": "MX"
+                    },
+                    "contactPoint": [
+                        {
+                            "@type": "ContactPoint",
+                            "telephone": "+52-722 966 6219",
+                            "contactType": "customer service",
+                            "contactOption": "TollFree",
+                            "areaServed": "MX",
+                            "availableLanguage": ["Spanish", "English"]
+                        },
+                        {
+                            "@type": "ContactPoint",
+                            "telephone": "+52-722 966 6219",
+                            "contactType": "sales",
+                            "areaServed": "MX",
+                            "availableLanguage": ["Spanish"]
+                        }
+                    ]
+                }
+            </script>
+<link rel="stylesheet" href="/assets/css/preloader.css">
+</head>
+
+
+<body >
+	
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="/assets/img/GRUMEX/preloaderlogo.svg" alt="Logo GRUMEX">
+    </div>
+	
+	
+    <div class="navegacion">
+        <div class="navegacion__contenedor">
+            <div class="navegacion__grid">
+                <a href="/index.html" class="navegacion__icono">
+                    <img src="/assets/img/GRUMEX/GRUMEX.svg" alt="Icono" />
+                </a>
+                <a class="navegacion__buttom">
+                    <i class="fa-solid fa-list" style="color: #ffffff;"></i>
+                </a>
+            </div>
+
+            <nav class="navegacion__nav ">
+                <a href="/pages/Mobiliaria/mobiliaria.html" class="navegacion__item">
+                    <img src="/assets/img/Index/Mobiliaria/Mobiliaria.svg" alt="Servicio de corte láser " />
+                    <p class="texto">Mobiliaria</p>
+                </a>
+
+                <a href="/pages/Construccion/construccion.html" class="navegacion__item">
+                    <img src="/assets/img/Index/Construcción/Construccionicon.svg" alt="Servicio de corte láser " />
+                    <p class="texto">Construcción</p>
+                </a>
+
+                <a href="/pages/manufactura/manufactura.html" class="navegacion__item">
+                    <img src="/assets/img/Index/manufactura/manufacturaicon.svg" alt="Pintura electroestática para metal en Toluca" />
+                    <p class="texto">manufactura</p>
+                </a>
+                <a href="/pages/Importacion/importacion.html" class="navegacion__item">
+                    <img src="/assets/img/Index/manufactura/iconoimportacion.svg" alt="Servicio de soldadura " />
+                    <p class="texto">manufactura</p>
+                </a>
+                <a href="/pages/Marmol/marmol.html" class="navegacion__item">
+                    <img src="/assets/img/Index/Marmol/marmol.svg" alt="Trabajos de marmol en Toluca" />
+                    <p class="texto">Marmol</p>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+<div class="header">
+    <div class="spacerch"></div>
+    <div class="header__contenidos">
+    <div class="header__services">
+            <img src="/assets/img/Index/manufactura/importacion.png" alt="I" />
+            <div class="header__iconos">
+                <div class="header__box">
+                    <a href="/digitalizacion">
+                    <img src="/assets/img/Index/manufactura/iconoimportacion.svg" alt="I" />
+                    </a>     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+
+<main class="manufactura__contenido">
+            <div class="whatsapp">
+    <a  href="https://wa.me/5541351103?text=¡Hola%20Más%20espacio!%20Me%20interesa%20conocer%20más%20de%20tus%20servicios.%20" target=_blank"">
+    <i class="fa-brands fa-whatsapp" style="color: #63E6BE;"></i> 
+    </a>
+    </div>
+<div class="informacion texto">
+    <div class="informacion__contenedor">
+        <div class="spacersch"></div>
+        <a href="">
+            <img src="/assets/img/GRUMEX/GRUMEX.svg" alt="Icono" />
+        </a>
+
+        <a href="">
+            <h1 class="titulos texto_grande"> Servicios de Importacion, logística y maniobras</h1>
+        </a>
+
+        <div class="informacion__texto">
+            <h3 class="bold_header">En actualización</h3>
+            <p class="texto_header">Lo sentimos, por el momento este apartado se encuentra en actualización
+el equipo GRUMEX agradece su comprensión. </p>
+
+        </div>
+        <a href="https://wa.me/5541351103?text=¡Hola%20Más%20espacio!%20Me%20interesa%20conocer%20más%20de%20tus%20servicios.%20" target="_blank">
+            <input type="submit" class="formulario__submit-contacto" value="Cotiza ahora"></a>
+
+
+    </div>
+</div> 
+        </main>
+
+
+<section class="formulario">
+    <div class="formulario__grid">
+        <div class="formulario__contacto">
+            <h3>Obtén asesoría en manufactura</h3>
+            <div class="formulario__contacto-grid">
+                <div class="formulario__info">
+                    <i class="fa-brands fa-whatsapp"></i>
+            
+                    <a class="formulario__enlace" href="https://wa.me/5541351103?text=¡Hola%20Más%20espacio!%20Me%20interesa%20conocer%20más%20de%20tus%20servicios.%20" target="_blank">55 4135 1103</a>
+                </div>
+
+                <div class="formulario__info">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a class="formulario__enlace" href="mailto:contacto@masespacio.mx">contacto@masespacio.mx</a>
+                </div>
+				
+				<div class="formulario__info">
+                    <i>Forma parte nuestro equipo</i>
+                    <a></a>
+                </div>
+				
+				<div class="formulario__info">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <a class="formulario__enlace" href="https://wa.me/722 966 6219?text=¡Hola%20Más%20espacio!%20Me%20interesa%20conocer%20más%20de%20tus%20servicios.%20" target="_blank">56 1852 6838</a>
+                </div>
+            </div>
+            <input type="submit" class="formulario__submit-contacto" value="Sobre Nosotros">
+        </div>
+
+        <div class="formulario__form">
+            <h2>Contacto</h2>
+
+            <form class="formulario__buscar" action="/" method="POST">
+                <div class="formulario__campo">
+                    <label class="formulario__label" for="nombre">Nombre</label>
+                    <input id="name" class="formulario__input" placeholder="Tu nombre" type="text" name="form[nombre]" required>
+                </div>
+
+                <div class="formulario__campo">
+                    <label class="formulario__label" for="empresa">Empresa</label>
+                    <input id="company" class="formulario__input" placeholder="Nombre de tu empresa" type="text" name="form[empresa]">
+                </div>
+
+                <div class="formulario__campo">
+                    <label class="formulario__label" for="email">Correo electronico</label>
+                    <input id="email" class="formulario__input" placeholder="Tu correo electronico" type="email" name="form[email]" required>
+                </div>
+
+                <div class="formulario__campo">
+                    <label class="formulario__label" for="phone">Telefono</label>
+                    <input id="phone" class="formulario__input" placeholder="Tu telefono" type="number" name="form[telefono]">
+                </div>
+
+                <div class="formulario__campo">
+                    <label class="formulario__label" for="mensaje">Mensaje</label>
+                    <textarea name="form[mensaje]" class="formulario__input" id="" required></textarea>
+                    <!-- <input id="mensaje" class="formulario__input" placeholder="Opcional" type="text"> -->
+                </div>
+
+                <input type="submit" class="formulario__submit" value="Enviar">
+            </form>
+
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="footer__inferior">
+        <div class="footer__redes">
+            <h3 class="footer__subtitulos underline">
+                Redes Sociales
+            </h3>
+            <nav class="menu-redes">
+                <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/profile.php?id=61573461339470/">
+                    <span class="menu-redes__ocultar">Facebook</span>
+                </a>
+                <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/GRUMEX2024/">
+                    <span class="menu-redes__ocultar">Instagram</span>
+                </a>
+                <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank" href="https://www.tiktok.com    ">
+                    <span class="menu-redes__ocultar">Tiktok</span>
+                </a>
+                <a class="menu-redes__enlace" rel="noopener noreferrer" target="_blank" href="https://mx.linkedin.com">
+                    <span class="menu-redes__ocultar">linkedin</span>
+                </a>
+            </nav>
+        </div>
+
+
+        <div class="footer__certificaciones">
+            <h3 class="footer__subtitulos underline correcion">
+                Certificaciones
+            </h3>
+
+            <div class="footer__texto">
+                <a class="footer__flex">
+                    <img src="../../build/img/ic_bifma.svg" alt="">
+                </a>
+                <a class="footer__flex">
+                    <img src="../../build/img/ic_isob.svg" alt="">
+                    <p></p>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="footer__copyright">
+            <p>
+                +Espacio
+                <span class="footer__copyright--regular">
+                    - Todos los derechos reservados 2025                </span>
+            </p>
+
+            <a href="/terminosycondiciones">
+                <p>Politica de Calidad</p>
+                <p>Términos y condiciones</p>
+            </a>
+
+			<a href="/politicaQ">
+                <p>Politica de Privacidad</p>
+            </a>
+        </div>
+    </div>
+</footer>
+        
+
+<script src="/assets/js/bundle.min.js" defer></script>
+<script src="/assets/js/slider.js" defer></script>
+<script src="/assets/js/preloader.js" defer></script>
+</body>
+</html>

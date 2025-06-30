@@ -1,0 +1,56 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.politicas{
+    
+
+    &__contenedor{
+        background-color: v.$blanco;
+        @include m.contenedor;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+
+    &__contenido{
+        padding: 5rem;
+        background-color: v.$negro_claro;
+        color: v.$blanco;
+        h1{
+            padding-bottom: 2rem;
+        }
+    
+        h2{
+            padding: 2rem 0 2rem 0;
+        }
+        h3{
+            padding: 1rem 0 1rem 0;
+        
+        }
+        p{
+            padding: 2rem 0 2rem 0;
+        }
+    }
+
+    &__space{
+        padding-bottom: 4rem;
+    }
+
+    &__br{
+        padding-left: 2rem;
+        font-size: 1rem;
+        max-width: 100%;
+        overflow-x: auto;
+
+        @include m.tablet {
+            font-size: 2rem;
+
+        }
+    
+    }
+
+
+
+
+
+
+}

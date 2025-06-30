@@ -1,0 +1,35 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.barra {
+    background-color: v.$negro;
+
+    &__contenido {
+
+        @include m.contenedor;
+        //height: 100%;
+        display: flex;
+        flex-direction: column;
+        //align-items: center;
+
+        @include m.desktop {
+            display: grid;
+            //flex-direction: row;
+            grid-template-columns: 20% 80%;
+            align-items: center;
+            //align-items: ;
+            //align-items: center;
+        }
+
+
+        img {
+            height: 8rem;
+            margin: .1rem;
+        }
+
+    }
+
+
+
+}

@@ -1,0 +1,164 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.header_servicios{
+    background-color: v.$negro;
+    padding-top: 9rem;
+
+    &__iconos{
+        @include m.contenedor;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+       
+
+        @include m.tablet {
+            gap: 1rem;
+            justify-content: space-between;
+    
+        }
+    }
+
+    &__item{
+        display: flex;
+        width: auto;
+        height: 13rem;
+        transition: all .8s;
+        padding: .5rem;
+     
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+           
+        }
+
+        &:hover{
+    
+            background-color: v.$blanco;
+            img{
+                filter: invert(100%);
+
+            }
+     
+     
+             }
+
+
+             @include m.tablet {
+                padding: 2rem;
+        
+            }
+    }
+
+}
+
+
+.carrusel-header {
+
+
+    &__list {
+        .hitem {
+            position: absolute;
+            inset: 0 0 0 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: .5s;
+        }
+
+        .hitem.hactive {
+            opacity: 1;
+            z-index: 10;
+        }
+        @keyframes showContent {
+            to{
+                transform: translateY(0);
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+
+    &__arrows{
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+        z-index: 100;
+
+        button {
+            background-color: rgb(255, 255, 255);
+            border: none;
+            font-family: monospace;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            font-size: x-large;
+            color: #000000;
+            transition: .5s;
+
+            &:hover {
+                background-color: #000000;
+                color: rgb(255, 255, 255);
+                cursor: pointer;
+            }
+        }
+
+    }
+
+
+
+
+
+
+
+}
+
+.hslider {
+    height: 40rem;
+    position: relative;
+
+    @include m.tablet {
+        height: 45rem;
+
+    }
+
+    @include m.desktop {
+        height: 55rem;
+
+    }
+}
+
+.hthumbnail{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 3rem;
+
+
+}
+
+.hthumbnail .hitem{
+ filter: brightness(.5);
+ transition: .5s;
+}
+
+.hthumbnail .hitem.hactive{
+    filter: brightness(1.5);
+   }
+
+.point{
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: v.$blanco;
+    border-radius: 50%;
+}

@@ -1,0 +1,32 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencias (si usas npm o similares en el futuro)
+node_modules/
+npm-debug.log*
+
+# Archivos temporales
+*.tmp
+*.temp
+*.log
+
+# Archivos de respaldo
+*.bak
+*~
+
+# Archivos comprimidos grandes
+*.zip
+*.rar
+*.7z
+
+# Carpetas de build (si las tienes)
+dist/
+build/

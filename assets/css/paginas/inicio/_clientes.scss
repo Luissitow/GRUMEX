@@ -1,0 +1,53 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.clientes {
+    @include m.contenedor;
+    text-align: center;
+    padding: 3rem 0 5rem;
+
+    @include m.tablet{
+        padding: 3rem 0 7rem;
+     }
+
+    h1{
+        padding: 0 0 4rem;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        justify-items: center;
+        align-items: center;
+
+        @include m.tablet{
+            grid-template-columns: repeat(4,1fr);
+         }
+
+
+
+         img{
+            height: 10rem;
+            width: 10rem;
+            object-fit: contain;
+
+            @include m.tablet{
+                height: 12rem;
+                width: 12rem;
+             }
+
+             
+            @include m.desktop{
+                height: 15rem;
+                width: 15rem;
+             }
+
+        
+         }
+    }
+
+    
+}

@@ -1,0 +1,120 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.whatsapp{
+    background-color: v.$transparente;
+    color: v.$transparente;
+    
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 0rem;
+    margin: 3rem;
+    width: 0rem;
+    z-index: 1000;
+    font-size: 0;
+    transition: all .5s;
+    
+   
+
+    &.fijo {
+        background-color: v.$negro;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 5.5rem;
+        width: 5.5rem;
+        font-size: 3.5rem;
+        border-radius: 15%;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        transition: all .5s;
+        
+        &:hover{
+            background-color: v.$negro;
+            a{
+                color: v.$blanco;
+            
+            }
+        }
+
+        @include m.desktop{
+            height: 6.5rem;
+            width: 6.5rem;
+            font-size: 4.5rem;
+         }
+
+        a{
+            color: v.$negro;
+        
+        }
+       
+       
+    }
+
+}
+
+.informacion{
+    background-color: v.$negro;
+
+    
+
+    &__contenedor{
+        @include m.contenedor;
+        color: v.$blanco;
+        padding: 4rem 0rem 6rem;
+        text-align: center;
+    
+        a{
+            color: v.$blanco;
+
+         
+        }
+        img{
+
+            width: 100%;
+
+            @include m.tablet{
+                width: 35rem;
+             }
+
+             @include m.desktop{
+                width: 48rem;
+             }
+
+    
+    
+          
+           
+    
+
+        }
+
+
+        
+
+    
+
+        @include m.desktop{
+            padding: 2rem 0 6rem 0;
+         }
+
+ 
+        
+    }
+
+    
+    &__texto{
+        margin-bottom: 3rem;
+
+        p{
+            margin: 0 ;
+
+            @include m.tablet{
+                margin: 0  5rem 0;
+             }
+        }
+
+    }
+
+
+}

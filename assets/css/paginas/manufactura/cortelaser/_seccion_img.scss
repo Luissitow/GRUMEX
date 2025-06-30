@@ -1,0 +1,113 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.seccion_img{
+    background-color: v.$negro;
+    padding:8rem 0 8rem 0;
+    
+
+    &__contenedor{
+        @include m.contenedor;
+        @include m.grid(2,3rem);
+        
+    }
+
+  
+    
+   
+}
+
+.seccion_img__box{
+    
+    width: 100%;
+    height: 35rem;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    box-shadow: 0 2px 20px 2px rgba(0,0,0,0.3);
+
+    @include m.tablet {
+        margin: 1rem;
+    }
+}
+
+.seccion_img__box::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+.seccion_img__box:hover::after {
+	position: absolute;
+    content: '';
+    transform: translateY(0);
+	background: linear-gradient(35deg, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 46, 0));
+	z-index: 2;
+	width: 100%;
+	height: 100%;	
+	top: 0;
+	left: 0;
+	opacity: 1;	
+}
+.seccion_img__box img{
+    object-fit: cover;
+    min-height: 100%;
+    height: auto;
+    transition: all 0.5s ease;
+    width: 100%;
+    height: auto;    
+}
+.seccion_img__box:hover img{
+    transform: scale(1.3) translate(10%, 10%);
+}
+.seccion_img__box .seccion_img__texto{
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateX(-105%);
+    transition: all 0.4s ease;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    padding: 10px 12px;
+    border-left: 4px solid #fff;
+    color: #ffffff;    
+}
+.seccion_img__box:hover .seccion_img__texto{
+    opacity: 1;
+    transform: translateX(0);
+}
+.seccion_img__box .seccion_img__texto h3 {
+    text-transform: uppercase;
+	letter-spacing: 3px;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 10px;
+	margin-bottom: 10px;	
+
+    @include m.tablet{
+        font-size: 20px;
+     }
+
+     @include m.desktop{
+        font-size: 23px;
+     }
+
+}
+.seccion_img__box .seccion_img__texto h3{
+    transition: all 0.7s ease;
+    transform: translateX(-100%);   
+    overflow: hidden;
+}
+.seccion_img__box:hover .seccion_img__texto h3{
+    transform: translateX(0);
+}
+
+
+.spaceimg{
+    padding-top: 2rem;
+}

@@ -1,0 +1,54 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.serviciosb{
+    @include m.contenedor;
+    text-align: center;
+    padding-top: 10rem;
+    h2{
+        margin: 0;
+    }
+
+    &__contenido{
+        padding: 3rem 5rem 8rem 5rem;
+        @include m.grid(2,3rem);
+
+        @include m.tablet{
+            @include m.grid(3,3rem);
+            padding: 8rem 5rem 10rem 5rem;
+         }
+
+     
+    }
+
+    &__manufactura-item{
+        display: flex;
+        width: auto;
+        height: 18rem;
+        transition: all .8s;
+
+         @include m.desktop{
+            height: 20rem;
+         }
+        img{
+            object-fit: contain;
+           
+        }
+        &:hover{
+    
+            background-color: v.$negro_claro;
+            img{
+                filter: invert(100%);
+
+            }
+     
+     
+             }
+    }
+
+    
+
+
+
+}

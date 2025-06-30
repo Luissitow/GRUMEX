@@ -1,0 +1,177 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.formulario {
+    background: linear-gradient(to bottom, v.$negro_claro 50%, v.$negro 50%);
+
+    @include m.tablet {
+        background: linear-gradient(to left, v.$blanco 50%, v.$negro 50%);
+    }
+
+    &__grid {
+        @include m.contenedor;
+        display: grid;
+        gap: 2rem;
+        align-items: center;
+
+        @include m.tablet {
+            display: grid;
+            grid-template-rows: unset;
+            grid-template-columns: repeat(2, 40% 60%);
+            gap: 0;
+        }
+    }
+
+    &__contacto {
+        display: flex;
+        background-color: v.$negro;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: v.$blanco;
+        grid-row: 2 / 3;
+
+        @include m.tablet {
+            background-color: v.$negro;
+            gap: 5rem;
+            grid-row: 1 / 2;
+            padding-right: 5rem;
+        }
+
+        h3 {
+            display: inline-block;
+            border-bottom: .1rem solid rgb(255, 255, 255);
+            padding-bottom: 3rem;
+            width: 80%;
+
+            @include m.tablet {
+                border-bottom: .1rem solid rgb(255, 255, 255);
+            }
+        }
+    }
+
+    &__contacto-grid {
+        @include m.tablet {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .input_contacto {
+        margin-left: 0;
+    }
+
+    &__info {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        display: block;
+
+        i {
+            font-size: 2.5rem;
+        }
+
+        @include m.tablet {
+            display: flex;
+        }
+    }
+
+    &__enlace {
+        padding-left: 1rem;
+        color: v.$blanco;
+
+        @include m.tablet {
+            padding-left: 2rem;
+        }
+    }
+
+    &__form {
+        background-color: v.$negro_claro;
+        color: v.$blanco;
+        padding-left: 5rem;
+        padding-top: 5rem;
+
+        h1 {
+            text-align: center;
+            padding-bottom: 1rem;
+            padding-top: 2rem;
+
+            @include m.tablet {
+                text-align: left;
+                display: inline-block;
+                padding-bottom: 1rem;
+            }
+        }
+
+        @include m.tablet {
+            background-color: v.$blanco;
+            padding-left: 8rem;
+            border: v.$transparente .1rem solid;
+            color: v.$negro;
+        }
+    }
+
+    &__buscar {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 5rem 4rem 0;
+
+        @include m.tablet {
+            padding: 2rem 0 2rem 0;
+        }
+    }
+
+    &__campo {
+        margin-bottom: 1rem;
+    }
+
+    &__label {
+        display: block;
+        text-transform: uppercase;
+        margin: 1rem 0;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 1.5rem;
+        border: none;
+        border-bottom: 1px solid v.$blanco;
+        outline: none;
+        color: white;
+        background: transparent;
+
+        @include m.tablet {
+            color: rgb(0, 0, 0);
+            width: 80%;
+            border-bottom: 1px solid v.$negro;
+        }
+    }
+
+    &__submit {
+        margin-top: 2rem;
+        margin-left: auto;
+        @include m.boton(v.$blanco, v.$negro);
+
+        @include m.tablet {
+            margin-top: 4rem;
+            @include m.boton(v.$negro, v.$blanco);
+        }
+    }
+
+    &__submit-contacto {
+        margin-top: 1rem;
+        @include m.boton-segundo(v.$negro, v.$blanco);
+
+        @include m.tablet {
+            margin-top: 4rem;
+        }
+    }
+}
+
+/* Asegúrate de que el contenedor del botón esté centrado */
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}

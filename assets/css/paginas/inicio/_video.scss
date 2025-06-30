@@ -1,0 +1,29 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.video{
+    background-color:  v.$negro_claro;
+
+    &__contenedor{
+        @include m.contenedor;
+        display:flex ;
+        justify-content: center;
+        video{
+            width: 100%;
+            padding: 6rem 0 6rem;
+
+            @include m.tablet{
+                width: 90%;
+                padding: 6rem 0 6rem;;
+             }
+
+             @include m.desktop{
+                width: 95%;
+                padding: 10rem 0 8rem;;
+             }
+    
+    
+        }
+    }
+}

@@ -1,0 +1,55 @@
+/* 🔥 Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    color: black;
+}
+
+/* 📌 Estilos del preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#preloader img {
+    width: 150px; /* Escala relativa al ancho de la pantalla */
+    max-width: 50%; /* Máximo 150px en pantallas grandes */
+    height: auto; /* Mantiene la proporción de la imagen */
+    animation: fadeOut 2s ease-in-out infinite;
+}
+
+/* Animación */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; }
+}
+
+/* Ocultar el preloader cuando cargue */
+.hidden {
+    display: none;
+}
+
+
+/* 🔹 Diseño responsivo */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+}

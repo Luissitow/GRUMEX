@@ -1,0 +1,69 @@
+/* Estilos generales para el slider */
+.new-slider-container {
+    width: 100%; /* Ajusta el slider a todo el ancho de la pantalla */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative; /* Asegura que el contenido duplicado no rompa el diseño */
+}
+
+.new-slider-track {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite; /* Desplazamiento continuo */
+}
+
+.new-slider-item {
+    padding: 0 30px;
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #333;
+    flex: 0 0 auto; /* Evita que los elementos se reduzcan */
+}
+
+/* Asegurar que las imágenes se ajusten al contenedor */
+.new-slider-item img {
+    width: auto;
+    height: 100px; /* Puedes ajustar esto para controlar la altura de las imágenes */
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Keyframes para el desplazamiento automático */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Desplaza hasta la mitad del contenido duplicado */
+    }
+}
+
+/* Responsividad para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .new-slider-item {
+        font-size: 18px;
+        padding: 0 10px;
+    }
+    .new-slider-track {
+        animation: scroll 10s linear infinite; /* Aumenta la velocidad en pantallas más pequeñas */
+    }
+    .new-slider-item img {
+        height: 80px; /* Ajusta la altura para pantallas móviles */
+    }
+}
+
+/* Ajuste adicional para pantallas realmente pequeñas (móviles) */
+@media screen and (max-width: 480px) {
+    .new-slider-item {
+        font-size: 16px;
+        padding: 0 5px;
+    }
+    .new-slider-item img {
+        height: 60px; /* Ajusta la altura aún más en pantallas muy pequeñas */
+    }
+}
