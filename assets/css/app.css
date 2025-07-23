@@ -2669,3 +2669,17 @@ grid-template-columns: repeat(5, 1fr): crea 5 columnas iguales → una por image
 }
 
 
+
+
+
+/* Solo muestra el elemento en pantallas menores a 900px */
+.solo-movil {
+    display: none;
+}
+@media (max-width: 900px) {
+    .solo-movil {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
