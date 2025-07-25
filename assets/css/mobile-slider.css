@@ -1,0 +1,112 @@
+/* CSS responsivo para el slider en dispositivos móviles */
+
+/* Ocultar el collage en móvil cuando el slider está visible */
+@media (max-width: 959px) {
+    .collage {
+        display: none;
+    }
+    
+    /* Ajustar altura del slider para móviles */
+    .slider {
+        height: 40rem;
+    }
+    
+    /* Asegurar que el título de casos de éxito sea visible */
+    .casos-exito {
+        text-align: center;
+        padding: 2rem 0;
+    }
+    
+    /* Ajustar la sección de exitos para móvil */
+    .exitos {
+        display: block !important;
+    }
+    
+    /* Mejorar la visualización de la información del slider */
+    .exitos__info {
+        padding-top: 2rem;
+    }
+    
+    /* Ajustar el tamaño y posición del texto en la parte de información */
+    .sliderdos .exitos__lists .item .content {
+        padding: 0 1rem;
+        text-align: center;
+    }
+    
+    .sliderdos .exitos__lists .item .content p:nth-child(1) {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .sliderdos .exitos__lists .item .content p:nth-child(3) {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    /* Centrar y ajustar tamaño de imágenes de logos */
+    .sliderdos .exitos__lists .item .content img {
+        max-width: 120px;
+        height: auto;
+        margin: 0 auto 1rem;
+        display: block;
+    }
+    
+    /* Ajustar botones de navegación para que sean más accesibles en móvil */
+    .exitos__arrows {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        width: 100%;
+        padding: 1rem 0;
+    }
+    
+    .exitos__arrows button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        background-color: rgba(0,0,0,0.5);
+        color: white;
+    }
+    
+
+    
+    /* Estilos para swipe en móvil */
+    .exitos__lists {
+        touch-action: pan-y;
+    }
+    
+    /* Ajustar la altura total de la sección para móviles */
+    .exitos {
+        min-height: 70vh;
+    }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .slider {
+        height: 30rem;
+    }
+    
+    .exitos__arrows {
+        bottom: 0;
+    }
+}
+
+/* Soporte para gestos táctiles */
+@media (hover: none) and (pointer: coarse) {
+    .slider .exitos__list .item .content h2 {
+        opacity: 1 !important; /* Mantener siempre visible en dispositivos táctiles */
+    }
+    
+    .slider .exitos__list .item::after {
+        opacity: 1 !important; /* Mantener siempre visible en dispositivos táctiles */
+    }
+}
+
+
+

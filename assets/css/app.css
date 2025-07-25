@@ -584,7 +584,7 @@ body {
 }
 
 .exitos {
-  display: none;
+  display: block;
 }
 @media (min-width: 960px) {
   .exitos {
@@ -620,6 +620,8 @@ body {
   position: absolute;
   color: #FFFFFF;
 }
+
+
 
 .slider {
   height: 65rem;
@@ -727,6 +729,9 @@ body {
 .slider .exitos__list .item.active p:nth-child(3) {
   animation-duration: 1.3s;
 }
+
+
+
 
 .exitos__arrows {
   position: absolute;
@@ -1882,6 +1887,7 @@ body {
 }
 
 
+
 .header__contenido {    /* Contenedor principal del header  
 
   .header__contenido por default (en móvil): no tiene display: grid, entonces todo se apila en vertical.
@@ -1901,9 +1907,75 @@ grid-template-columns: repeat(5, 1fr): crea 5 columnas iguales → una por image
     padding: 0;
     gap: 0;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr);   /* Cambia a 6 5 4 o las que quieras columnas iguales */
+  } 
+}
+
+
+/* Nueva versión con 6 columnas */
+.header__contenido--six {
+  margin-top: 5;
+  height: 100%;
+}
+/* Asegúrate que esta media query se aplique correctamente */
+@media (min-width: 960px) {
+  .header__contenido--six {
+    height: 100%;
+    padding: 0;
+    gap: 0;
+    display: grid !important; /* Añadir !important para asegurar que se aplique */
+    grid-template-columns: repeat(6, 1fr); /* 6 columnas para página específica */
+  } 
+}
+
+
+
+
+
+
+
+
+
+
+/* Nueva clase específica para páginas con header a todo ancho */
+.header__contenido--fullwidth {
+  margin-top: 5;
+  height: 100%;
+}
+
+@media (min-width: 960px) {
+  .header__contenido--fullwidth {
+    height: 100%;
+    padding: 0;
+    gap: 0;
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna que ocupa todo el ancho */
+    width: 100%;
   }
 }
+   
+
+
+
+
+
+
+/* Nueva versión con 3 columnas */
+.header__contenido--three {
+  margin-top: 5;
+  height: 100%;
+}
+/* Media query para asegurar que se aplique correctamente en pantallas grandes */
+@media (min-width: 960px) {
+  .header__contenido--three {
+    height: 100%;
+    padding: 0;
+    gap: 0;
+    display: grid !important; /* Añadimos !important para asegurar que se aplique */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+  } 
+}
+
 .header__contenidos {
   margin-top: 5;
   height: 100%;
@@ -1918,7 +1990,7 @@ grid-template-columns: repeat(5, 1fr): crea 5 columnas iguales → una por image
   }
 }
 
-
+ 
 
 .header__services {
   height: 28rem;
@@ -1951,9 +2023,9 @@ grid-template-columns: repeat(5, 1fr): crea 5 columnas iguales → una por image
 .header__services:hover .header__iconos {
   height: 100%;
 }
+
 .header__iconos {
   width: 100%;
-  height: 0;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.829) 98%);
   position: absolute;
   left: 0;
@@ -1965,14 +2037,25 @@ grid-template-columns: repeat(5, 1fr): crea 5 columnas iguales → una por image
   flex-direction: column;
   text-align: center;
   font-size: 14px;
-  transition: height 0.6s;
+  /* Por defecto en móvil los iconos son visibles */
+  height: 100%;
 }
+
 @media (min-width: 960px) {
   .header__iconos {
+    /* En desktop aplicamos la animación */
+    height: 0;
     justify-content: end;
     padding-bottom: 8rem;
+    transition: height 0.6s;
+  }
+
+  /* La animación de hover solo funciona en desktop */
+  .header__services:hover .header__iconos {
+    height: 100%;
   }
 }
+
 .header__box {
   height: 50%;
   cursor: pointer;
@@ -2627,6 +2710,17 @@ grid-template-columns: repeat(5, 1fr): crea 5 columnas iguales → una por image
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /*# sourceMappingURL=app.css.map */
 
 
@@ -2681,5 +2775,20 @@ grid-template-columns: repeat(5, 1fr): crea 5 columnas iguales → una por image
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+}
+
+
+
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }

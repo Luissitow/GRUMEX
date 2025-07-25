@@ -1,0 +1,87 @@
+1-  navegacion, columnas/filas de servicios de cada web 
+
+
+.header__contenido {    /* Contenedor principal del header  
+
+  .header__contenido por default (en móvil): no tiene display: grid, entonces todo se apila en vertical.
+
+En pantallas grandes (≥960px):
+
+display: grid: activa el grid.
+
+grid-template-columns: repeat(5, 1fr): crea 5 columnas iguales → una por imagen.
+*/
+  margin-top: 5;
+  height: 100%;
+}
+@media (min-width: 960px) {
+  .header__contenido {
+    height: 100%;
+    padding: 0;
+    gap: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);   /* Cambia a 6 5 4 o las que quieras columnas iguales */
+  } 
+}
+
+
+
+
+2 - navegacion iconos 
+.header__iconos {
+  width: 100%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.829) 98%);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 14px;
+  /* Por defecto en móvil los iconos son visibles */
+  height: 100%;
+}
+
+@media (min-width: 960px) {
+  .header__iconos {
+    /* En desktop aplicamos la animación */
+    height: 0;
+    justify-content: end;
+    padding-bottom: 8rem;
+    transition: height 0.6s;
+  }
+
+  /* La animación de hover solo funciona en desktop */
+  .header__services:hover .header__iconos {
+    height: 100%;
+  }
+}
+
+.header__box {
+  height: 50%;
+  cursor: pointer;
+}
+@media (min-width: 960px) {
+  .header__box {
+    height: 25%;
+  }
+}
+.header__box img {
+  padding: 1rem;
+  height: 100%;
+  object-fit: contain;
+}
+
+.barra {
+  background-color: #000000;
+}
+.barra__contenido {
+  width: min(95%, 140rem);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1024px) 
