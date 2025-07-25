@@ -2965,6 +2965,7 @@ grid-template-columns: repeat(5, 1fr): crea 5 columnas iguales → una por image
   
   .sliderdos {
     position: relative !important;
+    /* min-height: 400px !important; */
 
   }
   
