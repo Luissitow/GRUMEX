@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRUMEX | Creación de mobiliario</title>
-    <meta name="description" content="GRUMEX ofrece servicios de corte láser, doblez, pintura electroestática, soldadura y marmol . Calidad e innovación en manufactura.">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mobiliario en Toluca | Grumex  - Mobiliario personalizado para retail, oficinas y hoteles</title>
+        <meta name="description" content="Diseñamos y fabricamos mobiliario personalizado para tiendas, oficinas, hoteles y más. Calidad, funcionalidad y diseño con GRUMEX en Toluca.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
-    <script src="assets/js/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin="" defer></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+        <script src="assets/js/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin="" defer></script>
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/assets/css/app.css">
-    <link rel="stylesheet" href="/assets/css/slider.css">
-    <link rel="stylesheet" href="/assets/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="/assets/css/app.css">
+        <link rel="stylesheet" href="/assets/css/slider.css">
+        <link rel="stylesheet" href="/assets/css/all.min.css">
+        <link rel="stylesheet" href="/assets/css/mobile-slider.css">
 
-        <!-- Metadatos para Open Graph (OG) -->
-        <meta property="og:image" content="https://grupogrumex.com/assets/img/GRUMEX/GRUMEX.png" />
-        <meta property="og:title" content="GRUMEX - Servicios de manufactura" />
-        <meta property="og:description" content="ofrecemos servicios de manufactura, Mobiliaria, Marmol, Construccion e Importacion " />
-        <meta property="og:url" content="https://grupogrumex.com" />
-        <meta property="og:locale" content="es_MX" />
-        <meta property="og:site_name" content="Grupo Comercial Mexicano de la Industria y la Construccion" />
-        <meta property="og:type" content="website" />
+        <!--< Metadatos mejorados para Open Graph (WhatsApp, Facebook, LinkedIn) -->
+        <meta property="og:title" content="GRUMEX - Mobiliario personalizado en Toluca" />
+        <meta property="og:description" content="Soluciones en mobiliaria: diseño y fabricación de muebles para tiendas, oficinas, hoteles y más. Funcionalidad, estética y calidad con GRUMEX.">
+        <meta property="og:image" content="https://grupogrumex.com/assets/img/GRUMEX/GRUMEX.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="Logo GRUMEX - Mobiliario a medida">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://grupogrumex.com/mobiliaria"">
+        <meta property="og:site_name" content="Grupo Comercial Mexicano de la Industria y la Construccion">
+        <meta property="og:locale" content="es_MX">
+
+
+
+
 
         <!-- Metadatos para Twitter -->
         <meta name="twitter:site" content="@GRUMEX2024" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="GRUMEX - Servicios de manufactura" />
-        <meta name="twitter:description" content="¿Necesitas soluciones en manufactura? GRUMEX te ofrece calidad e innovación con corte láser, mobiliario y construcción. ¡Contáctanos!" />
+        <meta name="twitter:title" content="GRUMEX - Mobiliario personalizado en Toluca" />
+        <meta name="twitter:description" content="Diseño y fabricación de mobiliario a medida para retail, oficinas y hoteles. Con GRUMEX transforma tus espacios.">
         <meta name="twitter:image" content="https://grupogrumex.com/assets/img/GRUMEX/GRUMEX.png" />
-        <meta name="twitter:url" content="https://grupogrumex.com" />
-
+        <meta name="twitter:url" content="https://grupogrumex.com/mobiliaria" />
 
         <!-- Metadatos para SEO -->
-        <meta name="keywords" content="corte láser, doblez, pintura electroestática, soldadura, marmol, Toluca, Metepec, manufactura, GRUMEX">
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        <meta name="keywords" content="mobiliario personalizado, mobiliaria en Toluca, diseño de muebles, retail, oficinas, hoteles, GRUMEX, fabricación de mobiliario">
         <meta name="revisit-after" content="1 month">
         <meta name="author" content="GRUMEX">
         <meta name="distribution" content="global">
@@ -50,70 +57,115 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="mobile-web-app-capable" content="yes">
 
-        <meta name="geo.region" content="MX-MEX" />
-        <meta name="geo.placename" content="Toluca, Estado de México" />
+        <!-- Localización -->
         <meta name="geo.position" content="19.2826;-99.6557" />
         <meta name="ICBM" content="19.2826, -99.6557" />
+        <meta name="DC.language" content="es-MX">
+        <meta name="robots" content="index, follow">
+
+        
 
 
         <!-- Canonical Tag -->
-        <link rel="canonical" href="https://grumex.luxxodev.com/" />
+        <link rel="canonical" href="https://grupogrumex.com/mobiliaria" />
 
-        <!-- Dublin Core Metadata -->
-        <meta name="DC.title" content="GRUMEX - Servicios de manufactura">
-        <meta name="DC.description" content="GRUMEX  ofrece servicios de corte láser, doblez, pintura electroestática, soldadura y marmol . Calidad e innovación en manufactura.">
-        <meta name="DC.subject" content="corte láser, doblez, pintura electroestática, soldadura, marmol, Toluca, Metepec, manufactura, GRUMEX">
+
+        <!-- Dublin Core -->
+        <meta name="DC.title" content="GRUMEX - Mobiliario personalizado en Toluca">
+        <meta name="DC.description" content="GRUMEX diseña y fabrica mobiliario a medida para espacios comerciales, oficinas, hoteles y más. Calidad y funcionalidad.">
+        <meta name="DC.subject" content="mobiliario personalizado, muebles Toluca, diseño y fabricación, GRUMEX">
         <meta name="DC.language" content="es-MX">
 
         <!-- Alternate Tags -->
-        <link rel="alternate" hreflang="es" href="https://grumex.luxxodev.com/" /> 
-        <link rel="alternate" hreflang="en" href="https://grumex.luxxodev.com/en/" />
+        <link rel="alternate" hreflang="es" href="https://grumex.luxxodev.com/mobiliaria" />
+        <link rel="alternate" hreflang="en" href="https://grumex.luxxodev.com/en/mobiliaria" />
 
         <!-- Favicon -->
         <link rel="icon" href="/assets/img/GRUMEX/GRUMEXICO.ico" type="image/x-icon">
         <link rel="icon" type="image/png" href="/assets/img/GRUMEX/GRUMEXICO.png" sizes="32x32" />
 
+        <!-- Structured Data (Schema.org) para Mobiliaria -->
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "Corporation"],
+        "name": "GRUMEX - Grupo Comercial Mexicano de la Industria y la Construcción",
+        "url": "https://grupogrumex.com/mobiliaria",
+        "logo": "https://grupogrumex.com/assets/img/GRUMEX/GRUMEX.png",
+        "image": "https://grupogrumex.com/assets/img/GRUMEX/GRUMEX.png",
+        "description": "Diseñamos y fabricamos mobiliario a medida para tiendas, oficinas, hoteles y espacios comerciales. Soluciones funcionales, duraderas y con alto valor estético.",
+        "telephone": "+52-722-966-6219",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "C. Laguna de la Gavia 600, El Seminario Tercera Secc",
+            "addressLocality": "Toluca de Lerdo",
+            "addressRegion": "MEX",
+            "postalCode": "50170",
+            "addressCountry": "MX"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "19.2826",
+            "longitude": "-99.6557"
+        },
+        "openingHours": [
+            "Mo-Fr 08:00-18:00",
+            "Sa 09:00-14:00"
+        ],
+        "contactPoint": [
+            {
+            "@type": "ContactPoint",
+            "telephone": "+52-722-966-6219",
+            "contactType": "customer service",
+            "availableLanguage": ["Spanish", "English"]
+            },
+            {
+            "@type": "ContactPoint",
+            "telephone": "+52-722-966-6219",
+            "contactType": "sales",
+            "availableLanguage": ["Spanish"]
+            }
+        ],
+        "sameAs": [
+            "https://www.facebook.com/profile.php?id=61578197236389",
+            "https://www.instagram.com/grumex_mx/",
+            "https://x.com/GRUMEX2024"
+        ],
+        "hasMap": "https://maps.app.goo.gl/VNy4nTva6fdEvPdT6",
+        "keywords": [
+            "mobiliario a medida",
+            "mobiliaria",
+            "muebles personalizados",
+            "mobiliario para oficinas",
+            "mobiliario para tiendas",
+            "fabricación de muebles",
+            "diseño de mobiliario",
+            "Toluca",
+            "Metepec"
+        ],
+        "makesOffer": [
+            {
+            "@type": "Offer",
+            "itemOffered": {
+                "@type": "Service",
+                "serviceType": "Diseño y fabricación de mobiliario personalizado"
+            }
+            }
+        ],
+        "priceRange": "$$",
+        "areaServed": {
+            "@type": "Place",
+            "name": "México"
+        }
+        }
+        </script>
 
-            <!-- Structured Data (Schema.org) -->
-            <script type="application/ld+json">
-                {
-                    "@context": "https://schema.org",
-                    "@type": "Organization",
-                    "name": "GRUMEX",
-                    "url": "https://grumex.luxxodev.com/",
-                    "logo": "https://grumex.luxxodev.com/assets/img/GRUMEX/iconoempresa.png",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "C. Laguna de la Gavia 600, El Seminario Tercera Secc",
-                        "addressLocality": "Toluca de Lerdo",
-                        "addressRegion": "MEX",
-                        "postalCode": "50170",
-                        "addressCountry": "MX"
-                    },
-                    "contactPoint": [
-                        {
-                            "@type": "ContactPoint",
-                            "telephone": "+52-722 966 6219",
-                            "contactType": "customer service",
-                            "contactOption": "TollFree",
-                            "areaServed": "MX",
-                            "availableLanguage": ["Spanish", "English"]
-                        },
-                        {
-                            "@type": "ContactPoint",
-                            "telephone": "+52-722 966 6219",
-                            "contactType": "sales",
-                            "areaServed": "MX",
-                            "availableLanguage": ["Spanish"]
-                        }
-                    ]
-                }
-            </script>
 
 
-<!-- Vincular CSS -->
-<link rel="stylesheet" href="/assets/css/preloader.css">
-</head>
+
+    <!-- Vincular CSS -->
+    <link rel="stylesheet" href="/assets/css/preloader.css">
+    </head>
 
 
 

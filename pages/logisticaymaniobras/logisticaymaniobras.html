@@ -1,123 +1,146 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GRUMEX | Grupo Comercial Mexicano de la Industria y la Construcción S. de R.L. de C.V</title>
-        <meta name="description" content="GRUMEX - Especialistas en manufactura, mobiliaria, mármol y construcción. Soluciones innovadoras con corte láser, pintura electrostática y soldadura . ¡Cotiza ahora!">
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GRUMEX | Logística y Maniobras Especializadas en México</title>
+        <meta name="description" content="Servicios de logística, transporte, renta de montacargas y maniobras especializadas con GRUMEX. Más de 15 años de experiencia en soluciones industriales. ¡Cotiza ahora!" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <!-- Fuentes -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+        <!-- Leaflet para mapas -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
-        <script src="assets/js/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin="" defer></script>
+        <script src="/assets/js/leaflet.js" defer></script>
 
+        <!-- Estilos -->
+        <link rel="stylesheet" href="/assets/css/app.css?v=1.0" />
+        <link rel="stylesheet" href="/assets/css/slider.css" />
+        <link rel="stylesheet" href="/assets/css/all.min.css" />
+        <link rel="stylesheet" href="/assets/css/mobile-slider.css" />
+        <link rel="stylesheet" href="/assets/css/preloader.css" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="/assets/css/app.css">
-        <link rel="stylesheet" href="/assets/css/slider.css">
-        <link rel="stylesheet" href="/assets/css/all.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <!-- Metadatos mejorados para Open Graph (WhatsApp, Facebook, LinkedIn) -->
-        <meta property="og:title" content="GRUMEX">
-        <meta property="og:description" content="Ofrecemos servicios de manufactura, Mobiliaria, Marmol, Construccion e Importacion ¡Cotiza ahora con GRUMEX!">
-        <meta property="og:image" content="https://grupogrumex.com/assets/img/GRUMEX/GRUMEX.png">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
-        <meta property="og:image:alt" content="Logo GRUMEX - Manufactura e innovación">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://grupogrumex.com">
-        <meta property="og:site_name" content="Grupo Comercial Mexicano de la Industria y la Construccion">
-        <meta property="og:locale" content="es_MX">
+        <!-- Metadatos Open Graph -->
+        <meta property="og:title" content="GRUMEX | Servicios de Logística y Maniobras Especializadas en México" />
+        <meta property="og:description" content="Renta de montacargas, maniobras de carga y descarga, transporte industrial y más. Conoce nuestras soluciones logísticas integrales." />
+        <meta property="og:image" content="https://grupogrumex.com/assets/img/GRUMEX/GRUMEX.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Logo GRUMEX - Logística y Maniobras" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://grupogrumex.com/servicios/logisticaymaniobras" />
+        <meta property="og:site_name" content="GRUMEX" />
+        <meta property="og:locale" content="es_MX" />
 
-
-
-
-
-        <!-- Metadatos para Twitter -->
+        <!-- Metadatos Twitter -->
         <meta name="twitter:site" content="@GRUMEX2024" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="GRUMEX - Servicios de manufactura" />
-        <meta name="twitter:description" content="¿Necesitas soluciones en manufactura? GRUMEX te ofrece calidad e innovación con corte láser, mobiliario y construcción. ¡Contáctanos!" />
+        <meta name="twitter:title" content="GRUMEX | Logística y Maniobras Especializadas" />
+        <meta name="twitter:description" content="Más de 50 unidades de transporte, servicio 24/7 y cobertura nacional. Maniobras, montacargas, plataformas y más." />
         <meta name="twitter:image" content="https://grupogrumex.com/assets/img/GRUMEX/GRUMEX.png" />
-        <meta name="twitter:url" content="https://grupogrumex.com" />
+        <meta name="twitter:url" content="https://grupogrumex.com/servicios/logisticaymaniobras" />
 
-        <!-- Metadatos para SEO -->
-        <meta name="keywords" content="corte laser, cnc, soldadura, corte y doblez de lamina, pintura electrostatica, construccion, corte de tablero para cocina integral, importacion, enchapado de cantos, dimensionadora">        <meta name="revisit-after" content="1 month">
-        <meta name="author" content="GRUMEX">
-        <meta name="distribution" content="global">
-        <meta name="rating" content="general">
-        <meta name="referrer" content="no-referrer-when-downgrade">
-        <meta name="theme-color" content="#000000">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="mobile-web-app-capable" content="yes">
-
+        <!-- SEO -->
+        <meta name="keywords" content="logística, maniobras, montacargas, plataformas, transporte, camiones, grúas, carga y descarga, renta de maquinaria, Toluca, Metepec" />
+        <meta name="revisit-after" content="1 month" />
+        <meta name="author" content="GRUMEX" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <meta name="referrer" content="no-referrer-when-downgrade" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="geo.position" content="19.2826;-99.6557" />
         <meta name="ICBM" content="19.2826, -99.6557" />
-        <meta name="DC.title" content="GRUMEX - Servicios de manufactura">
-        <meta name="DC.language" content="es-MX">
-        
+        <meta name="DC.language" content="es-MX" />
+        <meta name="robots" content="index, follow" />
 
+        <!-- Canonical -->
+        <link rel="canonical" href="https://grupogrumex.com/servicios/logisticaymaniobras" />
 
-        <!-- Canonical Tag -->
-        <link rel="canonical" href="https://grumex.luxxodev.com/" />
+        <!-- Dublin Core -->
+        <meta name="DC.title" content="GRUMEX - Logística y Maniobras" />
+        <meta name="DC.description" content="GRUMEX ofrece soluciones de transporte, logística, montacargas, plataformas y maniobras de carga y descarga en México." />
+        <meta name="DC.subject" content="logística, montacargas, transporte, maniobras, plataformas, maquinaria, Toluca, Metepec, GRUMEX" />
+        <meta name="DC.language" content="es-MX" />
 
-        <!-- Dublin Core Metadata -->
-        <meta name="DC.title" content="GRUMEX - Servicios de manufactura">
-        <meta name="DC.description" content="GRUMEX  ofrece servicios de corte láser, doblez, pintura electroestática, soldadura y marmol . Calidad e innovación en manufactura.">
-        <meta name="DC.subject" content="corte láser, doblez, pintura electroestática, soldadura, marmol, Toluca, Metepec, manufactura, GRUMEX">
-        <meta name="DC.language" content="es-MX">
-
-        <!-- Alternate Tags -->
-        <link rel="alternate" hreflang="es" href="https://grumex.luxxodev.com/" /> 
-        <link rel="alternate" hreflang="en" href="https://grumex.luxxodev.com/en/" />
+        <!-- Alternate Language -->
+        <link rel="alternate" hreflang="es" href="https://grupogrumex.com/servicios/logisticaymaniobras" />
+        <link rel="alternate" hreflang="en" href="https://grupogrumex.com/en/services/logistics-and-handling" />
 
         <!-- Favicon -->
-        <link rel="icon" href="/assets/img/GRUMEX/GRUMEXICO.ico" type="image/x-icon">
+        <link rel="icon" href="/assets/img/GRUMEX/GRUMEXICO.ico" type="image/x-icon" />
         <link rel="icon" type="image/png" href="/assets/img/GRUMEX/GRUMEXICO.png" sizes="32x32" />
 
-            <!-- Structured Data (Schema.org) -->
-            <script type="application/ld+json">
-                {
-                    "@context": "https://schema.org",
-                    "@type": "Organization",
-                    "name": "GRUMEX",
-                    "url": "https://grumex.luxxodev.com/",
-                    "logo": "https://grumex.luxxodev.com/assets/img/GRUMEX/GRUMEX.png",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "C. Laguna de la Gavia 600, El Seminario Tercera Secc",
-                        "addressLocality": "Toluca de Lerdo",
-                        "addressRegion": "MEX",
-                        "postalCode": "50170",
-                        "addressCountry": "MX"
-                    },
-                    "contactPoint": [
-                        {
-                            "@type": "ContactPoint",
-                            "telephone": "+52-722 966 6219",
-                            "contactType": "customer service",
-                            "contactOption": "TollFree",
-                            "areaServed": "MX",
-                            "availableLanguage": ["Spanish", "English"]
-                        },
-                        {
-                            "@type": "ContactPoint",
-                            "telephone": "+52-722 966 6219",
-                            "contactType": "sales",
-                            "areaServed": "MX",
-                            "availableLanguage": ["Spanish"]
-                        }
-                    ]
-                }
-            </script>
+        <!-- Datos estructurados JSON-LD -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": ["LocalBusiness", "Corporation"],
+            "name": "GRUMEX - Grupo Comercial Mexicano de la Industria y la Construcción",
+            "url": "https://grupogrumex.com/servicios/logisticaymaniobras",
+            "logo": "https://grupogrumex.com/assets/img/GRUMEX/GRUMEX.png",
+            "image": "https://grupogrumex.com/assets/img/GRUMEX/GRUMEX.png",
+            "description": "Soluciones integrales de logística y maniobras: renta de montacargas, transporte, maniobras de carga y descarga, plataformas, camiones y más.",
+            "telephone": "+52-722-966-6219",
+            "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "C. Laguna de la Gavia 600, El Seminario Tercera Secc",
+            "addressLocality": "Toluca de Lerdo",
+            "addressRegion": "MEX",
+            "postalCode": "50170",
+            "addressCountry": "MX"
+            },
+            "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "19.2826",
+            "longitude": "-99.6557"
+            },
+            "openingHours": ["Mo-Fr 08:00-18:00", "Sa 09:00-14:00"],
+            "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+52-722-966-6219",
+                "contactType": "customer service",
+                "availableLanguage": ["Spanish", "English"]
+            }
+            ],
+            "sameAs": [
+            "https://www.facebook.com/profile.php?id=61578197236389",
+            "https://www.instagram.com/grumex_mx/",
+            "https://x.com/GRUMEX2024"
+            ],
+            "keywords": [
+            "logística",
+            "maniobras",
+            "montacargas",
+            "plataformas",
+            "camiones",
+            "renta de maquinaria",
+            "transporte industrial",
+            "Toluca",
+            "Metepec"
+            ],
+            "makesOffer": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "serviceType": "Renta de montacargas" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "serviceType": "Maniobras de carga y descarga" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "serviceType": "Transporte y logística industrial" } }
+            ],
+            "priceRange": "$$",
+            "areaServed": {
+            "@type": "Place",
+            "name": "México"
+            }
+        }
+        </script>
+        </head>
 
-    <!-- Vincular CSS -->
-    <link rel="stylesheet" href="/assets/css/preloader.css">
-    </head>
 
 
     <body>

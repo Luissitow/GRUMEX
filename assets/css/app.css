@@ -2847,6 +2847,14 @@ grid-template-columns: repeat(5, 1fr): crea 5 columnas iguales → una por image
 
 
 
+
+
+
+
+
+
+
+
 /* Ajustes para mostrar correctamente la sección de información en móvil */
 @media (max-width: 959px) {
   #exitos {
