@@ -19,7 +19,7 @@ export default function Preloader() {
           key="preloader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.4, ease: 'easeOut' } }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-dark"
+          className="bg-dark fixed inset-0 z-[9999] flex items-center justify-center"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

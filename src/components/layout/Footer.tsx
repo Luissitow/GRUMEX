@@ -17,21 +17,16 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div className="flex flex-col gap-4">
-            <Image
-              src="/assets/img/GRUMEX/GRUMEXWH.svg"
-              alt="GRUMEX"
-              width={140}
-              height={40}
-            />
+            <Image src="/assets/img/GRUMEX/GRUMEXWH.svg" alt="GRUMEX" width={140} height={40} />
             <p className="text-sm leading-relaxed text-white/60">
-              Grupo Comercial Mexicano de la Industria y la Construcción. Más de
-              20 años de experiencia en servicios industriales.
+              Grupo Comercial Mexicano de la Industria y la Construcción. Más de 20 años de
+              experiencia en servicios industriales.
             </p>
           </div>
 
           {/* Servicios */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
+            <h3 className="mb-4 text-sm font-semibold tracking-wider text-white/40 uppercase">
               Servicios
             </h3>
             <ul className="flex flex-col gap-2">
@@ -39,7 +34,7 @@ export default function Footer() {
                 <li key={s.href}>
                   <Link
                     href={s.href}
-                    className="text-sm text-white/70 transition-colors hover:text-primary"
+                    className="hover:text-primary text-sm text-white/70 transition-colors"
                   >
                     {s.label}
                   </Link>
@@ -50,29 +45,24 @@ export default function Footer() {
 
           {/* Contacto */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
+            <h3 className="mb-4 text-sm font-semibold tracking-wider text-white/40 uppercase">
               Contacto
             </h3>
             <ul className="flex flex-col gap-3 text-sm text-white/70">
               <li>
-                <a
-                  href="tel:+527229666219"
-                  className="transition-colors hover:text-primary"
-                >
+                <a href="tel:+527229666219" className="hover:text-primary transition-colors">
                   +52 722 966 6219
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:contacto@grumex.mx"
-                  className="transition-colors hover:text-primary"
+                  className="hover:text-primary transition-colors"
                 >
                   contacto@grumex.mx
                 </a>
               </li>
-              <li className="text-white/50">
-                Toluca de Lerdo, Estado de México
-              </li>
+              <li className="text-white/50">Toluca de Lerdo, Estado de México</li>
             </ul>
           </div>
         </div>

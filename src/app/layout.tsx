@@ -19,7 +19,15 @@ export const metadata: Metadata = {
   },
   description:
     'Grupo Comercial Mexicano de la Industria y la Construcción. Manufactura, mobiliaria, construcción, mármol e importación con más de 20 años de experiencia.',
-  keywords: ['manufactura', 'mobiliaria', 'construcción', 'mármol', 'importación', 'Toluca', 'México'],
+  keywords: [
+    'manufactura',
+    'mobiliaria',
+    'construcción',
+    'mármol',
+    'importación',
+    'Toluca',
+    'México',
+  ],
   openGraph: {
     type: 'website',
     locale: 'es_MX',

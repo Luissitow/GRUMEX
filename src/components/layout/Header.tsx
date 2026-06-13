@@ -25,7 +25,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         sticky ? 'bg-dark shadow-lg' : 'bg-transparent'
       }`}
     >
@@ -47,7 +47,7 @@ export default function Header() {
             <li key={s.href}>
               <Link
                 href={s.href}
-                className="text-sm font-medium text-white transition-colors hover:text-primary"
+                className="hover:text-primary text-sm font-medium text-white transition-colors"
               >
                 {s.label}
               </Link>
@@ -58,7 +58,7 @@ export default function Header() {
         {/* CTA desktop */}
         <Link
           href="/#contacto"
-          className="hidden rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-dark md:block"
+          className="bg-primary hover:bg-primary-dark hidden rounded-full px-5 py-2 text-sm font-semibold text-white transition-colors md:block"
         >
           Cotiza ahora
         </Link>
@@ -84,17 +84,17 @@ export default function Header() {
 
       {/* Menú mobile */}
       <div
-        className={`overflow-hidden bg-dark transition-all duration-300 md:hidden ${
+        className={`bg-dark overflow-hidden transition-all duration-300 md:hidden ${
           menuAbierto ? 'max-h-96' : 'max-h-0'
         }`}
       >
-        <ul className="flex flex-col gap-1 px-6 pb-6 pt-2">
+        <ul className="flex flex-col gap-1 px-6 pt-2 pb-6">
           {servicios.map((s) => (
             <li key={s.href}>
               <Link
                 href={s.href}
                 onClick={() => setMenuAbierto(false)}
-                className="block py-2 text-sm font-medium text-white transition-colors hover:text-primary"
+                className="hover:text-primary block py-2 text-sm font-medium text-white transition-colors"
               >
                 {s.label}
               </Link>
@@ -104,7 +104,7 @@ export default function Header() {
             <Link
               href="/#contacto"
               onClick={() => setMenuAbierto(false)}
-              className="block rounded-full bg-primary px-5 py-2 text-center text-sm font-semibold text-white"
+              className="bg-primary block rounded-full px-5 py-2 text-center text-sm font-semibold text-white"
             >
               Cotiza ahora
             </Link>
