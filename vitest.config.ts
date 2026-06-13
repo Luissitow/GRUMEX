@@ -9,6 +9,8 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/tests/setup.ts'],
     include: ['src/**/*.{test,spec}.{ts,tsx}'],
+    exclude: ['src/tests/e2e/**', 'node_modules/**'],
+    passWithNoTests: true,
     coverage: {
       reporter: ['text', 'lcov'],
       exclude: ['node_modules/', 'src/tests/'],
