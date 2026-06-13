@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'GRUMEX — Servicios Industriales en México',
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://grupogrumex.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://grupogrumex.com'),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
