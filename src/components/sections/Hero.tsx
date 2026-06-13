@@ -1,112 +1,78 @@
-'use client'
-
-import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
 
-const slides = [
+const paneles = [
   {
-    img: '/assets/img/Index/manufactura/cortelaser/cortelaser.jpg',
-    titulo: 'Manufactura de precisión',
-    subtitulo: 'Corte láser, soldadura, doblez y pintura electrostática',
-    cta: { label: 'Ver manufactura', href: '/manufactura' },
+    titulo: 'Manufactura',
+    href: '/manufactura',
+    fondo: '/assets/img/Index/manufactura/cortelaser/cortelaser.jpg',
+    icono: '/assets/img/Index/manufactura/manufacturaicon.svg',
   },
   {
-    img: '/assets/img/Index/Mobiliaria/mobiliarioref.jpg',
-    titulo: 'Mobiliario a tu medida',
-    subtitulo: 'Oficina, industrial, retail y hogar con acabados de calidad',
-    cta: { label: 'Ver mobiliaria', href: '/mobiliaria' },
+    titulo: 'Mobiliaria',
+    href: '/mobiliaria',
+    fondo: '/assets/img/Index/Mobiliaria/mobiliarioref.jpg',
+    icono: '/assets/img/Index/Mobiliaria/Mobiliaria.svg',
   },
   {
-    img: '/assets/img/Index/Construcción/construccion.jpg',
-    titulo: 'Construcción y obra civil',
-    subtitulo: 'Remodelaciones, instalaciones y construcción industrial',
-    cta: { label: 'Ver construcción', href: '/construccion' },
+    titulo: 'Construcción',
+    href: '/construccion',
+    fondo: '/assets/img/Index/Construcción/construccion.jpg',
+    icono: '/assets/img/Index/Construcción/Construccionicon.svg',
+  },
+  {
+    titulo: 'Mármol',
+    href: '/marmol',
+    fondo: '/assets/img/Index/Marmol/marmol1.jpg',
+    icono: '/assets/img/Index/Marmol/marmol.svg',
+  },
+  {
+    titulo: 'Importación',
+    href: '/importacion',
+    fondo: '/assets/img/Index/Importación/img/Importacion.avif',
+    icono: '/assets/img/Index/Importación/servicios/iconoimportacion.svg',
+  },
+  {
+    titulo: 'Logística y Maniobras',
+    href: '/logistica',
+    fondo: '/assets/img/Index/Logisticaymaniobras/grua.jpg',
+    icono: '/assets/img/Index/Logisticaymaniobras/iconologisticaymaniobras.svg',
   },
 ]
 
 export default function Hero() {
-  const [current, setCurrent] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length)
-    }, 4000)
-    return () => clearInterval(timer)
-  }, [])
-
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Slides */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7, ease: 'easeInOut' }}
-          className="absolute inset-0"
+    <section className="mt-[68px] flex h-[calc(100vh-68px)] w-full overflow-hidden">
+      {paneles.map((panel) => (
+        <Link
+          key={panel.href}
+          href={panel.href}
+          className="group relative flex-1 overflow-hidden"
         >
+          {/* Imagen de fondo */}
           <Image
-            src={slides[current].img}
-            alt={slides[current].titulo}
+            src={panel.fondo}
+            alt={panel.titulo}
             fill
-            className="object-cover"
-            priority={current === 0}
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            sizes="(max-width: 768px) 50vw, 17vw"
+            priority
           />
-          <div className="absolute inset-0 bg-black/55" />
-        </motion.div>
-      </AnimatePresence>
 
-      {/* Contenido */}
-      <div className="relative z-10 flex h-full items-center">
-        <div className="mx-auto w-full max-w-7xl px-6">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="max-w-2xl"
-            >
-              <h1 className="mb-4 text-4xl leading-tight font-extrabold text-white md:text-6xl">
-                {slides[current].titulo}
-              </h1>
-              <p className="mb-8 text-lg text-white/80">{slides[current].subtitulo}</p>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href={slides[current].cta.href}
-                  className="bg-primary hover:bg-primary-dark rounded-full px-8 py-3 font-semibold text-white transition-colors"
-                >
-                  {slides[current].cta.label}
-                </Link>
-                <Link
-                  href="/#contacto"
-                  className="rounded-full border border-white/60 px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
-                >
-                  Cotiza ahora
-                </Link>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
+          {/* Overlay oscuro */}
+          <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/20" />
 
-      {/* Indicadores */}
-      <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Slide ${i + 1}`}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              i === current ? 'bg-primary w-8' : 'w-2 bg-white/50'
-            }`}
-          />
-        ))}
-      </div>
+          {/* Ícono + nombre centrado */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-2">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-all duration-300 group-hover:bg-primary/80 group-hover:scale-110">
+              <Image src={panel.icono} alt={panel.titulo} width={36} height={36} />
+            </div>
+            <p className="text-center text-sm font-bold uppercase tracking-wider text-white drop-shadow-lg">
+              {panel.titulo}
+            </p>
+          </div>
+        </Link>
+      ))}
     </section>
   )
 }
