@@ -45,15 +45,17 @@ export default function Hero() {
     <section className="mt-[68px] grid h-[28rem] grid-cols-2 md:h-[55rem] md:grid-cols-6 lg:h-[70rem]">
       {paneles.map((panel) => (
         <div key={panel.href} className="group relative overflow-hidden">
-          {/* Imagen de fondo */}
-          <Image
-            src={panel.fondo}
-            alt={panel.titulo}
-            fill
-            className="object-cover transition-transform duration-[800ms] group-hover:scale-110"
-            sizes="(max-width: 768px) 50vw, 17vw"
-            priority
-          />
+          {/* Wrapper para zoom: el transform va aquí, no en next/image */}
+          <div className="absolute inset-0 transition-transform duration-[800ms] group-hover:scale-110">
+            <Image
+              src={panel.fondo}
+              alt={panel.titulo}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, 17vw"
+              priority
+            />
+          </div>
 
           {/*
            * Overlay: en mobile siempre visible (h-full).

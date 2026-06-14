@@ -6,31 +6,37 @@ import Link from 'next/link'
 const servicios = [
   {
     label: 'Mobiliaria',
+    lines: ['Mobiliaria'],
     href: '/mobiliaria',
     icono: '/assets/img/Index/Mobiliaria/Mobiliaria.svg',
   },
   {
     label: 'Construcción',
+    lines: ['Construcción'],
     href: '/construccion',
     icono: '/assets/img/Index/Construcción/Construccionicon.svg',
   },
   {
     label: 'Manufactura',
+    lines: ['Manufactura'],
     href: '/manufactura',
     icono: '/assets/img/Index/manufactura/manufacturaicon.svg',
   },
   {
     label: 'Importación',
+    lines: ['Importación'],
     href: '/importacion',
     icono: '/assets/img/Index/Importación/servicios/iconoimportacion.svg',
   },
   {
     label: 'Marmol',
+    lines: ['Marmol'],
     href: '/marmol',
     icono: '/assets/img/Index/Marmol/marmol.svg',
   },
   {
     label: 'Logistica y Maniobras',
+    lines: ['Logistica', 'y maniobras'],
     href: '/logistica',
     icono: '/assets/img/Index/Logisticaymaniobras/iconologisticaymaniobras.svg',
   },
@@ -41,7 +47,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-black shadow-[0.1rem_0.2rem_0.1rem_rgb(29,29,29)]">
-      <div className="mx-auto flex w-[min(95%,140rem)] items-center justify-between py-2">
+      <div className="mx-auto grid w-[min(95%,140rem)] grid-cols-[20%_80%] items-center py-2">
         {/* Logo */}
         <Link href="/" className="shrink-0">
           {/* Logo: height equivalente a 8rem del original */}
@@ -54,23 +60,31 @@ export default function Header() {
         </Link>
 
         {/* Nav desktop — ícono + texto en fila (igual al original) */}
-        <nav className="hidden items-center md:flex">
-          {servicios.map((s) => (
-            <Link
-              key={s.href}
-              href={s.href}
-              className="group flex items-center gap-2 px-3 py-3 text-center text-white transition-colors duration-500 hover:bg-white hover:text-black"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={s.icono}
-                alt={s.label}
-                className="h-9 w-9 object-contain pl-2 group-hover:invert md:h-[3.8rem] md:w-[3.8rem]"
-              />
-              <span className="text-sm leading-tight font-medium">{s.label}</span>
-            </Link>
-          ))}
-        </nav>
+        <div className="hidden items-center justify-between md:flex">
+          <nav className="flex items-center">
+            {servicios.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                className="group flex items-center gap-1 px-2 py-3 text-center text-white transition-colors duration-500 hover:bg-white hover:text-black"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.icono}
+                  alt={s.label}
+                  className="h-[3.2rem] w-[3.2rem] object-contain pl-2 group-hover:invert"
+                />
+                <span className="text-left text-xs leading-tight font-medium">
+                  {s.lines.map((line, i) => (
+                    <span key={i} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </span>
+              </Link>
+            ))}
+          </nav>
+        </div>
 
         {/* Hamburger mobile */}
         <button
