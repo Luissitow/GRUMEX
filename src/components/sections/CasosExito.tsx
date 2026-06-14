@@ -2,126 +2,159 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
 
+/**
+ * Slider de casos de éxito, réplica de la sección `.exitos` del legacy:
+ *  - Grid 70/30 (78/22 en ≥1024px): imagen grande a la izquierda con overlay
+ *    "NUESTROS CASOS DE ÉXITO" y panel negro a la derecha con nombre, logo,
+ *    descripción y flechas ‹ ›.
+ *  - Fila de thumbnails debajo; al hacer clic cambia el caso activo.
+ */
 const casos = [
   {
+    cliente: 'E - Dental Group',
+    imagen: '/assets/img/Index/Mobiliaria/Casos de éxito/Edentalgroup/consultorio.png',
+    logo: '/assets/img/Index/Mobiliaria/Casos de éxito/Edentalgroup/E-Dental Group.svg',
+    descripcion:
+      'Trabajamos en conjunto con E-Dental Group para remodelar su consultorio dental, diseñando y fabricando mobiliario a medida que optimiza el espacio y mejora la experiencia de pacientes y personal.',
+  },
+  {
     cliente: 'Walmart',
-    logo: '/assets/img/empresas/Walmart/walmart.png',
     imagen: '/assets/img/empresas/Walmart/walmartestanterias.png',
+    logo: '/assets/img/empresas/Walmart/walmatsf.png',
     descripcion:
-      'Optimizamos los sistemas de almacenamiento en tiendas y centros de distribución con estanterías CNC personalizadas que mejoraron la eficiencia logística.',
-    servicio: 'Manufactura CNC',
-  },
-  {
-    cliente: 'CFE',
-    logo: '/assets/img/empresas/CFE/CFE.png',
-    imagen: '/assets/img/empresas/CFE/cajeroscfe.jpeg',
-    descripcion:
-      'Fabricamos componentes metálicos para cajeros automáticos con altos estándares de precisión y durabilidad requeridos por la Comisión Federal de Electricidad.',
-    servicio: 'Manufactura de precisión',
-  },
-  {
-    cliente: 'Hyatt Hotels',
-    logo: '/assets/img/empresas/HotelHyatt/hyatt.svg',
-    imagen: '/assets/img/empresas/HotelHyatt/hyatt.webp',
-    descripcion:
-      'Desarrollamos mobiliario corporativo exclusivo para las áreas de recepción y espacios comunes del hotel, con acabados de alta calidad.',
-    servicio: 'Mobiliaria corporativa',
+      'Trabajamos estrechamente con Walmart para optimizar sus sistemas de almacenamiento en tiendas y centros de distribución. Con maquila CNC brindamos estanterías personalizadas que mejoraron la eficiencia logística.',
   },
   {
     cliente: 'U-Storage',
-    logo: '/assets/img/empresas/U-Storage/u-storage.png',
     imagen: '/assets/img/empresas/U-Storage/bodegasustorage.webp',
+    logo: '/assets/img/empresas/U-Storage/U-storage.c.png',
     descripcion:
-      'Diseñamos e instalamos soluciones de almacenamiento modular que maximizan el uso del espacio en sus unidades de autoalmacenamiento.',
-    servicio: 'Mobiliaria industrial',
+      'Colaboramos con U-Storage para diseñar y suministrar soluciones que mejoran la eficiencia en la distribución y organización de las bodegas, ofreciendo espacios más funcionales y seguros.',
+  },
+  {
+    cliente: 'Palacio Mundo Imperial',
+    imagen: '/assets/img/empresas/HotelMundoPalacio/palacioroom.jpg',
+    logo: '/assets/img/empresas/HotelMundoPalacio/palacio-logo.svg',
+    descripcion:
+      'Diseñamos y fabricamos mobiliario exclusivo para sus interiores. Nuestro enfoque en calidad y funcionalidad permitió crear espacios elegantes y confortables con acabados de lujo.',
+  },
+  {
+    cliente: 'Hyatt',
+    imagen: '/assets/img/empresas/HotelHyatt/hyatt.webp',
+    logo: '/assets/img/empresas/HotelHyatt/hyatt.svg',
+    descripcion:
+      'Diseñamos y fabricamos mobiliario de alta calidad integrado a su estilo moderno y sofisticado. El cuidado en detalles y acabados creó un ambiente acogedor y funcional.',
+  },
+  {
+    cliente: 'Guardabox',
+    imagen: '/assets/img/empresas/GUARDABOX/GUARDABOXCAJAS.jpeg',
+    logo: '/assets/img/empresas/GUARDABOX/LOGOGUARDABOX.svg',
+    descripcion:
+      'Colaboramos con Guardabox para fabricar soluciones que mejoran la distribución y organización de espacios publicitarios, con vallas de alta calidad y acabados precisos en todo México.',
   },
 ]
 
 export default function CasosExito() {
   const [actual, setActual] = useState(0)
+  const total = casos.length
+  const prev = () => setActual((i) => (i - 1 + total) % total)
+  const next = () => setActual((i) => (i + 1) % total)
+  const caso = casos[actual]
 
   return (
-    <section className="bg-white py-[6rem]">
-      <div className="mx-auto w-[min(95%,140rem)] px-[2rem]">
-        <div className="mb-[5rem] text-center">
-          <h2 className="m-0 text-[3rem] font-bold uppercase md:text-[4.5rem] lg:text-[4.8rem]">
-            Casos de Éxito
-          </h2>
-          <p className="mt-[1rem] text-[1.8rem] text-gray-500">Proyectos que hablan por nosotros</p>
+    <section>
+      {/* Slider principal: grid 70/30 en ≥960px */}
+      <div className="md:grid md:grid-cols-[70%_30%] lg:grid-cols-[78%_22%]">
+        {/* Izquierda: imagen grande con overlay */}
+        <div className="relative h-[40rem] w-full overflow-hidden md:h-[65rem]">
+          <Image
+            src={caso.imagen}
+            alt={caso.cliente}
+            fill
+            className="object-cover"
+            sizes="(max-width: 960px) 100vw, 78vw"
+            priority
+          />
+          {/* gradiente inferior */}
+          <div className="absolute inset-0 [background:linear-gradient(to_top,#000_2%,transparent_98%)]" />
+          {/* título */}
+          <div className="absolute bottom-0 left-0 flex w-full justify-center pb-[4rem] md:pl-[20rem] lg:pl-[36rem]">
+            <h2 className="m-0 text-[3rem] font-bold text-white uppercase md:text-[4.5rem] lg:text-[4.8rem]">
+              Nuestros casos de éxito
+            </h2>
+          </div>
         </div>
 
-        <div className="grid gap-[3rem] lg:grid-cols-2">
-          {/* Imagen */}
-          <div className="relative h-[32rem] overflow-hidden rounded-[2rem] lg:h-auto lg:min-h-[40rem]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={actual}
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -30 }}
-                transition={{ duration: 0.4 }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={casos[actual].imagen}
-                  alt={casos[actual].cliente}
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Info */}
-          <div className="flex flex-col justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={actual}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
-              >
-                <span className="bg-primary/10 text-primary mb-[1.5rem] inline-block rounded-full px-[1.5rem] py-[0.5rem] text-[1.4rem] font-semibold">
-                  {casos[actual].servicio}
-                </span>
-                <h3 className="mb-[1.5rem] text-[2.6rem] font-extrabold text-black md:text-[3.2rem]">
-                  {casos[actual].cliente}
-                </h3>
-                <p className="mb-[3rem] text-[1.8rem] leading-relaxed text-gray-600">
-                  {casos[actual].descripcion}
-                </p>
-                <div className="h-[4rem]">
-                  <Image
-                    src={casos[actual].logo}
-                    alt={casos[actual].cliente}
-                    width={120}
-                    height={40}
-                    className="max-h-[4rem] w-auto object-contain grayscale"
-                  />
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navegación */}
-            <div className="mt-[3rem] flex gap-[1rem]">
-              {casos.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActual(i)}
-                  className={`h-[0.8rem] rounded-full transition-all duration-300 ${
-                    i === actual
-                      ? 'bg-primary w-[4rem]'
-                      : 'w-[0.8rem] bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Caso ${i + 1}`}
-                />
-              ))}
+        {/* Derecha: panel negro con info */}
+        <div className="relative bg-black">
+          <div className="flex h-full flex-col items-center justify-center px-[2rem] py-[5rem] text-center text-white md:py-0">
+            <p className="m-0 text-[1.5rem] tracking-[10px] uppercase lg:text-[1.8rem]">
+              {caso.cliente}
+            </p>
+            <div className="relative my-[2rem] h-[12rem] w-full max-w-[80%]">
+              <Image
+                src={caso.logo}
+                alt={caso.cliente}
+                fill
+                className="object-contain"
+                sizes="22vw"
+              />
             </div>
+            <p className="m-0 max-w-[500px] text-[1.6rem] leading-relaxed">{caso.descripcion}</p>
+          </div>
+
+          {/* flechas */}
+          <div className="absolute bottom-[2rem] left-1/2 flex -translate-x-1/2 gap-[1rem] md:left-[3rem] md:translate-x-0">
+            <button
+              onClick={prev}
+              aria-label="Anterior"
+              className="h-[40px] w-[40px] rounded-[5px] bg-[rgba(238,238,238,0.33)] font-mono text-2xl text-[#eee] transition-all duration-500 hover:cursor-pointer hover:bg-[#eee] hover:text-black"
+            >
+              {'<'}
+            </button>
+            <button
+              onClick={next}
+              aria-label="Siguiente"
+              className="h-[40px] w-[40px] rounded-[5px] bg-[rgba(238,238,238,0.33)] font-mono text-2xl text-[#eee] transition-all duration-500 hover:cursor-pointer hover:bg-[#eee] hover:text-black"
+            >
+              {'>'}
+            </button>
           </div>
         </div>
+      </div>
+
+      {/* Thumbnails */}
+      <div className="flex h-[12rem] w-full gap-[1rem] overflow-x-auto px-[1rem] py-[1rem] md:h-[24rem] md:gap-[2rem] md:px-[2rem]">
+        {casos.map((c, i) => (
+          <button
+            key={c.cliente}
+            onClick={() => setActual(i)}
+            aria-label={c.cliente}
+            className={[
+              'relative h-full w-[15rem] shrink-0 overflow-hidden transition-all duration-500 md:w-[45rem]',
+              i === actual ? 'brightness-110' : 'brightness-[0.7]',
+            ].join(' ')}
+          >
+            <Image
+              src={c.imagen}
+              alt={c.cliente}
+              fill
+              className="object-cover"
+              sizes="(max-width: 960px) 15rem, 45rem"
+            />
+            {/* logo overlay */}
+            <span className="absolute right-[5px] bottom-[5px] block w-[30%] md:right-[10px] md:bottom-[10px] md:w-[20%]">
+              <Image
+                src={c.logo}
+                alt={c.cliente}
+                width={120}
+                height={60}
+                className="h-auto w-full object-contain"
+              />
+            </span>
+          </button>
+        ))}
       </div>
     </section>
   )
