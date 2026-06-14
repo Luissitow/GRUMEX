@@ -74,10 +74,17 @@ export default function Hero() {
             ].join(' ')}
             aria-label={panel.titulo}
           >
-            {/* Ícono */}
-            <div className="flex h-1/2 items-center justify-center p-4 md:h-1/4">
+            {/* Ícono a tamaño fijo, no porcentual */}
+            <div className="flex flex-col items-center gap-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={panel.icono} alt={panel.titulo} className="h-full w-full object-contain" />
+              <img
+                src={panel.icono}
+                alt={panel.titulo}
+                className="h-16 w-16 object-contain md:h-20 md:w-20"
+              />
+              <span className="text-xs font-bold tracking-widest text-white uppercase drop-shadow">
+                {panel.titulo}
+              </span>
             </div>
           </Link>
         </div>

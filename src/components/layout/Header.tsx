@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 const servicios = [
   {
@@ -45,13 +44,12 @@ export default function Header() {
       <div className="mx-auto flex w-[min(95%,140rem)] items-center justify-between py-2">
         {/* Logo */}
         <Link href="/" className="shrink-0">
-          <Image
+          {/* Logo: height equivalente a 8rem del original */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/assets/img/GRUMEX/GRUMEX.svg"
             alt="GRUMEX"
-            width={130}
-            height={38}
-            priority
-            unoptimized
+            className="h-16 w-auto object-contain md:h-[6.5rem]"
           />
         </Link>
 
@@ -67,11 +65,9 @@ export default function Header() {
               <img
                 src={s.icono}
                 alt={s.label}
-                width={24}
-                height={24}
-                className="h-6 w-6 object-contain group-hover:invert"
+                className="h-9 w-9 object-contain pl-2 group-hover:invert md:h-[3.8rem] md:w-[3.8rem]"
               />
-              <span className="text-[12px] leading-tight font-medium">{s.label}</span>
+              <span className="text-sm leading-tight font-medium">{s.label}</span>
             </Link>
           ))}
         </nav>
