@@ -31,6 +31,39 @@ export interface Servicio {
   iconos: string[]
 }
 
+/** Caja de la sección `.clasificacion` / `.clasificacion_doble` del legacy */
+export interface ClasificacionBox {
+  titulo: string
+  texto: string
+}
+
+/** Caja de imagen con leyenda de la sección `.seccion_img` del legacy */
+export interface SeccionImgBox {
+  img: string
+  titulo: string
+}
+
+/**
+ * Subcategoría de un servicio (páginas de detalle del legacy con
+ * carrusel-header + informacion + clasificacion + seccion_img).
+ */
+export interface Subcategoria {
+  slug: string
+  nombre: string
+  metaTitle: string
+  metaDescription: string
+  /** Título de la sección de introducción */
+  introTitulo: string
+  /** Párrafo descriptivo */
+  introTexto: string
+  /** Imágenes del carrusel superior */
+  carrusel: string[]
+  /** Cajas de clasificación (texto sobre fondo blanco) */
+  clasificacion: ClasificacionBox[]
+  /** Cajas de imagen con leyenda al hover */
+  seccionImg: SeccionImgBox[]
+}
+
 export const servicios: Servicio[] = [
   {
     slug: 'manufactura',
@@ -45,19 +78,19 @@ export const servicios: Servicio[] = [
     paneles: [
       {
         titulo: 'Corte Láser',
-        href: '/manufactura',
+        href: '/manufactura/corte-laser',
         fondo: '/assets/img/Index/manufactura/cortelaser/cortelaser.jpg',
         icono: '/assets/img/Index/manufactura/cortelaser/cortelaser.svg',
       },
       {
         titulo: 'Soldadura',
-        href: '/manufactura',
+        href: '/manufactura/soldadura',
         fondo: '/assets/img/Index/manufactura/Herreria/herreria.png',
         icono: '/assets/img/Index/manufactura/soldadura/Soldadura.svg',
       },
       {
         titulo: 'Pintura Electroestática',
-        href: '/manufactura',
+        href: '/manufactura/pintura-electrostatica',
         fondo: '/assets/img/Index/manufactura/pinturaelectroestatica/pinturaelectroestatica.png',
         icono: '/assets/img/Index/manufactura/pinturaelectroestatica/PinturaElectroestatica.svg',
       },
@@ -69,7 +102,7 @@ export const servicios: Servicio[] = [
       },
       {
         titulo: 'Doblez CNC',
-        href: '/manufactura',
+        href: '/manufactura/doblez',
         fondo: '/assets/img/Index/manufactura/doblez/+3.JPG',
         icono: '/assets/img/Index/manufactura/doblez/Doblez.svg',
       },
@@ -383,4 +416,164 @@ export function getServicio(slug: string): Servicio | undefined {
 
 export function getServicioSlugs(): string[] {
   return servicios.map((s) => s.slug)
+}
+
+/**
+ * Subcategorías por servicio. Solo manufactura tiene páginas de detalle con
+ * contenido real en el legacy (las de construcción/mobiliaria estaban vacías).
+ */
+const CL = '/assets/img/Index/manufactura/cortelaser/casosdeexito'
+const SO = '/assets/img/Index/manufactura/soldadura'
+const DO = '/assets/img/Index/manufactura/doblez'
+const PI = '/assets/img/Index/manufactura/pinturaelectroestatica'
+
+export const subcategorias: Record<string, Subcategoria[]> = {
+  manufactura: [
+    {
+      slug: 'corte-laser',
+      nombre: 'Corte Láser',
+      metaTitle: 'Corte Láser en Toluca | GRUMEX - Corte de precisión en metal',
+      metaDescription:
+        'Servicio de corte láser de alta precisión en acero inoxidable, aluminio y acero al carbono. Cortes limpios para piezas complejas. Más de 10 años de experiencia.',
+      introTitulo: 'Corte Láser',
+      introTexto:
+        'En GRUMEX ofrecemos servicios de corte láser con tecnología de vanguardia, garantizando cortes precisos y limpios en una amplia variedad de metales, como acero inoxidable, aluminio y acero al carbono. Este proceso permite crear piezas complejas con máxima exactitud, optimizando tiempos de producción y reduciendo desperdicios. Con más de 10 años de experiencia, aseguramos resultados de alta calidad para tus proyectos de manufactura.',
+      carrusel: [
+        `${CL}/grabadolaser.jpeg`,
+        `${CL}/cortelaserenmadera.jpeg`,
+        `${CL}/cortelaserenperfiles1.png`,
+        `${CL}/cortelaser1.avif`,
+        `${CL}/punzonado.png`,
+      ],
+      clasificacion: [],
+      seccionImg: [
+        { img: `${CL}/cortelaserenperfiles1.png`, titulo: 'Corte de perfiles' },
+        { img: `${CL}/cortelaserentubo.png`, titulo: 'Corte de tubo redondo' },
+        { img: `${CL}/cortelaserenmadera.jpeg`, titulo: 'Corte en madera' },
+        { img: `${CL}/grabadolaser.jpeg`, titulo: 'Grabado láser' },
+      ],
+    },
+    {
+      slug: 'soldadura',
+      nombre: 'Soldadura',
+      metaTitle: 'Soldadura en Toluca | GRUMEX - MIG, TIG, láser y brazo soldador',
+      metaDescription:
+        'Servicios de soldadura MIG, TIG, láser y brazo soldador robotizado para proyectos de alto volumen. Uniones fuertes y de calidad en todo tipo de materiales.',
+      introTitulo: 'Soldadura',
+      introTexto:
+        'Contamos con servicios de soldadura MIG, TIG y láser, además de nuestro brazo soldador para proyectos de alto volumen. Nuestro equipo altamente capacitado y nuestra tecnología garantizan uniones fuertes y de calidad en todo tipo de proyectos.',
+      carrusel: [
+        `${SO}/soldadura2.jpg`,
+        `${SO}/caso1.jpg`,
+        `${SO}/caso2.jpg`,
+        `${SO}/caso3.jpg`,
+        `${SO}/caso4.jpg`,
+      ],
+      clasificacion: [
+        {
+          titulo: 'Soldadura TIG / MIG',
+          texto:
+            'Capacidad para producción de alta y baja demanda en diferentes materiales y medidas.',
+        },
+        {
+          titulo: 'Soldadura Láser',
+          texto:
+            'Para proyectos con más detalle y limpieza en cada una de las uniones, reduciendo el riesgo de deformación y daño en el material.',
+        },
+        {
+          titulo: 'Brazo Soldador',
+          texto:
+            'Robot soldador para producción en serie con el que garantizamos alta precisión y calidad en cada cordón y en diferentes tipos de materiales.',
+        },
+      ],
+      seccionImg: [
+        { img: `${SO}/caso1.jpg`, titulo: 'Soldadura MIG para carga pesada' },
+        { img: `${SO}/caso2.jpg`, titulo: 'Soldadura TIG para la industria farmacéutica' },
+        { img: `${SO}/caso3.jpg`, titulo: 'Soldadura MIG para mobiliario' },
+        { img: `${SO}/caso4.jpg`, titulo: 'Soldadura TIG para charolas' },
+      ],
+    },
+    {
+      slug: 'doblez',
+      nombre: 'Doblez',
+      metaTitle: 'Doblez de metal en Toluca | GRUMEX - Doblez plano, tubo y rolado',
+      metaDescription:
+        'Servicios de doblez plano, doblez de tubo y rolado de tubo con plegadoras de alta tecnología. Precisión y atención al detalle para proyectos exigentes.',
+      introTitulo: 'Doblez',
+      introTexto:
+        'Descubre la excelencia en nuestros servicios de doblez plano, doblez de tubo y rolado de tubo, así como el uso de plegadoras de alta tecnología. Nuestra precisión y atención al detalle garantizan resultados de calidad para tus proyectos más exigentes.',
+      carrusel: [
+        `${DO}/doblez.png`,
+        `${DO}/doblez4.jpg`,
+        `${DO}/doblez2.jpg`,
+        `${DO}/doblez3.jpg`,
+        `${DO}/doblez4.webp`,
+      ],
+      clasificacion: [
+        {
+          titulo: 'Doblez Plano y Tubo',
+          texto:
+            'Servicio de doblez para chapa desplegada de hasta 4 m de largo. Contamos con diferentes herramientas para lograr gran cantidad de especificaciones.',
+        },
+        {
+          titulo: 'Rolado de Tubo',
+          texto:
+            'Contamos con servicio de rolado a todo tipo de perfiles, ángulos y tubos, con una capacidad máxima de 2 1/2”, así como un radio máximo de curvatura de 320 mm.',
+        },
+      ],
+      seccionImg: [
+        { img: `${DO}/doblez1.jpg`, titulo: 'Doblez de entrepaños' },
+        { img: `${DO}/doblez2.jpg`, titulo: 'Doblez con radio específico para la industria ferroviaria' },
+        { img: `${DO}/doblez3.jpg`, titulo: 'Doblez de piezas para industria eléctrica' },
+        { img: `${DO}/doblez4.jpg`, titulo: 'Pieza en 3/16” con radio de 1/2” para la industria ferroviaria' },
+      ],
+    },
+    {
+      slug: 'pintura-electrostatica',
+      nombre: 'Pintura Electrostática',
+      metaTitle: 'Pintura Electrostática en Toluca | GRUMEX - Acabado de alta calidad',
+      metaDescription:
+        'Aplicación de pintura electrostática de alta calidad con proceso de lavado de 4 etapas y hornos batch y de cadena continua. Acabado duradero para piezas metálicas.',
+      introTitulo: 'Pintura Electrostática',
+      introTexto:
+        'Transformamos tus piezas metálicas con nuestros servicios de aplicación de pintura electrostática de alta calidad, utilizando 4 pasos de lavado para nuestros hornos batch y de cadena continua.',
+      carrusel: [
+        `${PI}/caso1.jpg`,
+        `${PI}/caso4.jpeg`,
+        `${PI}/caso5.jpeg`,
+        `${PI}/caso7.jpg`,
+        `${PI}/caso3.png`,
+      ],
+      clasificacion: [
+        {
+          titulo: 'Horno Batch 3x3',
+          texto: 'Horno enfocado a prototipos y/o especificaciones especiales.',
+        },
+      ],
+      seccionImg: [
+        { img: `${PI}/caso1.jpg`, titulo: 'Piezas pintadas entrando al proceso de curado' },
+        { img: `${PI}/caso2.webp`, titulo: 'Proceso de lavado de 4 etapas mediante aspersión' },
+        { img: `${PI}/caso3.png`, titulo: 'Clean Room para aplicación y recuperación de pintura' },
+        { img: `${PI}/caso4.jpeg`, titulo: 'Aplicación de pintura electrostática' },
+      ],
+    },
+  ],
+}
+
+export function getSubcategorias(servicioSlug: string): Subcategoria[] {
+  return subcategorias[servicioSlug] ?? []
+}
+
+export function getSubcategoria(
+  servicioSlug: string,
+  subSlug: string
+): Subcategoria | undefined {
+  return getSubcategorias(servicioSlug).find((s) => s.slug === subSlug)
+}
+
+/** Params para generateStaticParams de la ruta [servicio]/[subcategoria] */
+export function getSubcategoriaParams(): { servicio: string; subcategoria: string }[] {
+  return Object.entries(subcategorias).flatMap(([servicio, subs]) =>
+    subs.map((s) => ({ servicio, subcategoria: s.slug }))
+  )
 }
