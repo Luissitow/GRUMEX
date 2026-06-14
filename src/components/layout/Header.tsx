@@ -62,7 +62,7 @@ export default function Header() {
               href={s.href}
               className="flex flex-col items-center gap-1 rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
             >
-              <Image src={s.icono} alt={s.label} width={28} height={28} />
+              <Image src={s.icono} alt={s.label} width={28} height={28} unoptimized />
               <span className="text-[11px] font-medium leading-tight text-white">{s.label}</span>
             </Link>
           ))}
@@ -99,7 +99,7 @@ export default function Header() {
                 onClick={() => setMenuAbierto(false)}
                 className="hover:text-primary flex items-center gap-3 py-2 text-sm font-medium text-white transition-colors"
               >
-                <Image src={s.icono} alt={s.label} width={20} height={20} />
+                <Image src={s.icono} alt={s.label} width={20} height={20} unoptimized />
                 {s.label}
               </Link>
             </li>

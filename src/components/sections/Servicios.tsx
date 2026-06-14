@@ -65,7 +65,7 @@ export default function Servicios() {
               className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${s.color} border border-gray-200 to-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
             >
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-sm">
-                <Image src={s.icono} alt={s.titulo} width={32} height={32} />
+                <Image src={s.icono} alt={s.titulo} width={32} height={32} unoptimized />
               </div>
               <h3 className="text-dark mb-3 text-xl font-bold">{s.titulo}</h3>
               <p className="text-sm leading-relaxed text-gray-500">{s.descripcion}</p>

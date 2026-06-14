@@ -65,7 +65,7 @@ export default function Hero() {
           {/* Ícono + nombre centrado */}
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-2">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm transition-all duration-300 group-hover:bg-primary/80 group-hover:scale-110">
-              <Image src={panel.icono} alt={panel.titulo} width={36} height={36} />
+              <Image src={panel.icono} alt={panel.titulo} width={36} height={36} unoptimized />
             </div>
             <p className="text-center text-sm font-bold uppercase tracking-wider text-white drop-shadow-lg">
               {panel.titulo}
