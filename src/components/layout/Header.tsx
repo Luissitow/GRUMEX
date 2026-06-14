@@ -26,12 +26,12 @@ const servicios = [
     icono: '/assets/img/Index/Importación/servicios/iconoimportacion.svg',
   },
   {
-    label: 'Mármol',
+    label: 'Marmol',
     href: '/marmol',
     icono: '/assets/img/Index/Marmol/marmol.svg',
   },
   {
-    label: 'Logística y Maniobras',
+    label: 'Logistica y Maniobras',
     href: '/logistica',
     icono: '/assets/img/Index/Logisticaymaniobras/iconologisticaymaniobras.svg',
   },
@@ -41,8 +41,8 @@ export default function Header() {
   const [menuAbierto, setMenuAbierto] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full bg-dark/90 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+    <header className="fixed top-0 left-0 z-50 w-full bg-black shadow-[0.1rem_0.2rem_0.1rem_rgb(29,29,29)]">
+      <div className="mx-auto flex w-[min(95%,140rem)] items-center justify-between py-2">
         {/* Logo */}
         <Link href="/" className="shrink-0">
           <Image
@@ -51,19 +51,27 @@ export default function Header() {
             width={130}
             height={38}
             priority
+            unoptimized
           />
         </Link>
 
-        {/* Links desktop — íconos + texto igual que el original */}
-        <nav className="hidden items-center gap-1 md:flex">
+        {/* Nav desktop — ícono + texto en fila (igual al original) */}
+        <nav className="hidden items-center md:flex">
           {servicios.map((s) => (
             <Link
               key={s.href}
               href={s.href}
-              className="flex flex-col items-center gap-1 rounded-lg px-3 py-2 transition-colors hover:bg-white/10"
+              className="group flex items-center gap-2 px-3 py-3 text-center text-white transition-colors duration-500 hover:bg-white hover:text-black"
             >
-              <Image src={s.icono} alt={s.label} width={28} height={28} unoptimized />
-              <span className="text-[11px] font-medium leading-tight text-white">{s.label}</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={s.icono}
+                alt={s.label}
+                width={24}
+                height={24}
+                className="h-6 w-6 object-contain group-hover:invert"
+              />
+              <span className="text-[12px] leading-tight font-medium">{s.label}</span>
             </Link>
           ))}
         </nav>
@@ -87,32 +95,24 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Menú mobile */}
+      {/* Menú mobile — ícono centrado + texto (como el original en móvil) */}
       <div
-        className={`bg-dark overflow-hidden transition-all duration-300 md:hidden ${menuAbierto ? 'max-h-96' : 'max-h-0'}`}
+        className={`overflow-hidden bg-black transition-all duration-300 md:hidden ${menuAbierto ? 'max-h-[32rem]' : 'max-h-0'}`}
       >
-        <ul className="flex flex-col gap-1 px-6 pt-2 pb-6">
+        <ul className="flex flex-col">
           {servicios.map((s) => (
             <li key={s.href}>
               <Link
                 href={s.href}
                 onClick={() => setMenuAbierto(false)}
-                className="hover:text-primary flex items-center gap-3 py-2 text-sm font-medium text-white transition-colors"
+                className="flex flex-col items-center gap-1 py-3 text-center text-white transition-colors hover:bg-white hover:text-black [&:hover_img]:invert"
               >
-                <Image src={s.icono} alt={s.label} width={20} height={20} unoptimized />
-                {s.label}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={s.icono} alt={s.label} className="h-8 w-8 object-contain" />
+                <span className="text-sm font-medium">{s.label}</span>
               </Link>
             </li>
           ))}
-          <li className="mt-4">
-            <Link
-              href="/#contacto"
-              onClick={() => setMenuAbierto(false)}
-              className="bg-primary block rounded-full px-5 py-2 text-center text-sm font-semibold text-white"
-            >
-              Cotiza ahora
-            </Link>
-          </li>
         </ul>
       </div>
     </header>
