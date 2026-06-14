@@ -5,25 +5,17 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useState } from 'react'
 
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '527229666219'
+
 const schema = z.object({
   nombre: z.string().min(2, 'Mínimo 2 caracteres'),
   empresa: z.string().optional(),
   email: z.string().email('Email inválido'),
   telefono: z.string().optional(),
-  servicio: z.string().min(1, 'Selecciona un servicio'),
   mensaje: z.string().min(10, 'Mínimo 10 caracteres'),
 })
 
 type FormData = z.infer<typeof schema>
-
-const servicios = [
-  'Manufactura',
-  'Mobiliaria',
-  'Construcción',
-  'Mármol',
-  'Importación',
-  'Logística y Maniobras',
-]
 
 export default function Contacto() {
   const [enviado, setEnviado] = useState(false)
@@ -51,135 +43,137 @@ export default function Contacto() {
     }
   }
 
+  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    '¡Hola GRUMEX! Me interesa conocer más de sus servicios.'
+  )}`
+
   return (
-    <section id="contacto" className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-2">
-          {/* Info */}
-          <div>
-            <h2 className="text-dark mb-4 text-4xl font-extrabold">¿Listo para cotizar?</h2>
-            <p className="mb-8 leading-relaxed text-gray-500">
-              Cuéntanos tu proyecto y nuestro equipo te contactará en menos de 24 horas con una
-              propuesta personalizada.
-            </p>
-            <ul className="flex flex-col gap-4">
-              {[
-                { icon: '📞', texto: '+52 722 966 6219', href: 'tel:+527229666219' },
-                { icon: '✉️', texto: 'contacto@grumex.mx', href: 'mailto:contacto@grumex.mx' },
-                { icon: '📍', texto: 'Toluca de Lerdo, Estado de México', href: null },
-              ].map((item) => (
-                <li key={item.texto} className="flex items-center gap-3 text-gray-600">
-                  <span className="text-xl">{item.icon}</span>
-                  {item.href ? (
-                    <a href={item.href} className="hover:text-primary transition-colors">
-                      {item.texto}
-                    </a>
-                  ) : (
-                    <span>{item.texto}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
+    <section
+      id="contacto"
+      className="bg-[linear-gradient(to_bottom,rgb(29,29,29)_50%,#000_50%)] md:bg-[linear-gradient(to_left,#fff_50%,#000_50%)]"
+    >
+      <div className="mx-auto grid w-[min(95%,140rem)] items-center gap-8 md:grid-cols-[40%_60%] md:gap-0">
+        {/* Columna izquierda: contacto (negro) */}
+        <div className="order-2 flex flex-col items-center gap-12 bg-black px-6 py-12 text-center text-white md:order-1 md:pr-20">
+          <h3 className="inline-block w-4/5 border-b border-white pb-8 text-xl font-bold">
+            Descubre cómo podemos transformar tus proyectos
+          </h3>
+
+          <div className="flex flex-col">
+            <a
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 py-6 text-lg transition-opacity hover:opacity-80"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              722 966 6219
+            </a>
+            <a
+              href="mailto:contacto@grumex.mx"
+              className="flex items-center justify-center gap-3 py-6 text-lg transition-opacity hover:opacity-80"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7" aria-hidden="true">
+                <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
+              contacto@grumex.mx
+            </a>
           </div>
 
-          {/* Formulario */}
-          <div className="rounded-2xl bg-gray-50 p-8 shadow-sm">
-            {enviado ? (
-              <div className="flex h-full flex-col items-center justify-center gap-4 text-center">
-                <span className="text-5xl">✅</span>
-                <h3 className="text-dark text-2xl font-bold">¡Mensaje enviado!</h3>
-                <p className="text-gray-500">Te contactaremos en menos de 24 horas.</p>
-                <button
-                  onClick={() => setEnviado(false)}
-                  className="text-primary mt-4 font-semibold underline"
-                >
-                  Enviar otro mensaje
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <input
-                      {...register('nombre')}
-                      placeholder="Nombre *"
-                      className="focus:border-primary w-full rounded-xl border border-gray-200 px-4 py-3 text-sm transition-colors outline-none"
-                    />
-                    {errors.nombre && (
-                      <p className="mt-1 text-xs text-red-500">{errors.nombre.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <input
-                      {...register('empresa')}
-                      placeholder="Empresa"
-                      className="focus:border-primary w-full rounded-xl border border-gray-200 px-4 py-3 text-sm transition-colors outline-none"
-                    />
-                  </div>
-                </div>
+          <a href={waHref} target="_blank" rel="noopener noreferrer">
+            <span className="inline-block border border-white bg-black px-12 py-4 text-lg font-bold text-white transition-colors duration-300 hover:bg-white hover:text-black">
+              Sobre Nosotros
+            </span>
+          </a>
+        </div>
 
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <input
-                      {...register('email')}
-                      type="email"
-                      placeholder="Email *"
-                      className="focus:border-primary w-full rounded-xl border border-gray-200 px-4 py-3 text-sm transition-colors outline-none"
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <input
-                      {...register('telefono')}
-                      placeholder="Teléfono"
-                      className="focus:border-primary w-full rounded-xl border border-gray-200 px-4 py-3 text-sm transition-colors outline-none"
-                    />
-                  </div>
-                </div>
+        {/* Columna derecha: formulario (gris en móvil, blanco en desktop) */}
+        <div className="order-1 bg-[rgb(29,29,29)] px-6 pt-12 text-white md:order-2 md:bg-white md:pl-20 md:text-black">
+          <h2 className="py-6 text-center text-3xl font-bold md:text-left">Contacto</h2>
 
-                <div>
-                  <select
-                    {...register('servicio')}
-                    className="focus:border-primary w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-500 transition-colors outline-none"
-                  >
-                    <option value="">Servicio de interés *</option>
-                    {servicios.map((s) => (
-                      <option key={s} value={s}>
-                        {s}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.servicio && (
-                    <p className="mt-1 text-xs text-red-500">{errors.servicio.message}</p>
-                  )}
-                </div>
+          {enviado ? (
+            <div className="flex flex-col items-center gap-4 py-16 text-center">
+              <span className="text-5xl">✅</span>
+              <h3 className="text-2xl font-bold">¡Mensaje enviado!</h3>
+              <p className="opacity-70">Te contactaremos en menos de 24 horas.</p>
+              <button onClick={() => setEnviado(false)} className="mt-4 font-semibold underline">
+                Enviar otro mensaje
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col py-8 md:w-4/5">
+              <Campo label="Nombre" error={errors.nombre?.message}>
+                <input
+                  {...register('nombre')}
+                  placeholder="Tu nombre"
+                  className="w-full border-0 border-b border-white bg-transparent p-3 text-white outline-none md:border-black md:text-black"
+                />
+              </Campo>
 
-                <div>
-                  <textarea
-                    {...register('mensaje')}
-                    placeholder="Cuéntanos tu proyecto *"
-                    rows={4}
-                    className="focus:border-primary w-full resize-none rounded-xl border border-gray-200 px-4 py-3 text-sm transition-colors outline-none"
-                  />
-                  {errors.mensaje && (
-                    <p className="mt-1 text-xs text-red-500">{errors.mensaje.message}</p>
-                  )}
-                </div>
+              <Campo label="Empresa">
+                <input
+                  {...register('empresa')}
+                  placeholder="Nombre de tu empresa"
+                  className="w-full border-0 border-b border-white bg-transparent p-3 text-white outline-none md:border-black md:text-black"
+                />
+              </Campo>
 
-                <button
-                  type="submit"
-                  disabled={enviando}
-                  className="bg-primary hover:bg-primary-dark w-full rounded-xl py-4 font-semibold text-white transition-colors disabled:opacity-60"
-                >
-                  {enviando ? 'Enviando...' : 'Cotiza ahora'}
-                </button>
-              </form>
-            )}
-          </div>
+              <Campo label="Correo electrónico" error={errors.email?.message}>
+                <input
+                  {...register('email')}
+                  type="email"
+                  placeholder="Tu correo electrónico"
+                  className="w-full border-0 border-b border-white bg-transparent p-3 text-white outline-none md:border-black md:text-black"
+                />
+              </Campo>
+
+              <Campo label="Teléfono">
+                <input
+                  {...register('telefono')}
+                  placeholder="Tu teléfono"
+                  className="w-full border-0 border-b border-white bg-transparent p-3 text-white outline-none md:border-black md:text-black"
+                />
+              </Campo>
+
+              <Campo label="Mensaje" error={errors.mensaje?.message}>
+                <textarea
+                  {...register('mensaje')}
+                  rows={3}
+                  className="w-full resize-none border-0 border-b border-white bg-transparent p-3 text-white outline-none md:border-black md:text-black"
+                />
+              </Campo>
+
+              <button
+                type="submit"
+                disabled={enviando}
+                className="mt-8 ml-auto bg-white px-12 py-4 text-lg font-bold text-black transition-colors duration-300 hover:bg-black hover:text-white md:bg-black md:text-white md:hover:bg-white md:hover:text-black"
+              >
+                {enviando ? 'Enviando...' : 'Enviar'}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>
+  )
+}
+
+function Campo({
+  label,
+  error,
+  children,
+}: {
+  label: string
+  error?: string
+  children: React.ReactNode
+}) {
+  return (
+    <div className="mb-4">
+      <label className="my-2 block text-sm uppercase">{label}</label>
+      {children}
+      {error && <p className="mt-1 text-xs text-red-400">{error}</p>}
+    </div>
   )
 }
