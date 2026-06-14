@@ -1,26 +1,25 @@
 import Image from 'next/image'
 
 const clientes = [
-  { nombre: 'Walmart', logo: '/assets/img/empresas/Walmart/walmart.png' },
-  { nombre: 'CFE', logo: '/assets/img/empresas/CFE/CFE.png' },
-  { nombre: 'Hyatt', logo: '/assets/img/empresas/HotelHyatt/hyatt.svg' },
+  { nombre: 'Santa Fe', logo: '/assets/img/empresas/santafe.jpg' },
+  { nombre: 'Guardabox', logo: '/assets/img/empresas/GUARDABOX/LOGOGUARDABOX.svg' },
+  { nombre: 'CFE', logo: '/assets/img/empresas/CFE/CFE.jpg' },
   { nombre: 'U-Storage', logo: '/assets/img/empresas/U-Storage/u-storage.png' },
-  { nombre: 'Guardabox', logo: '/assets/img/empresas/GUARDABOX/LOGOGUARDABOX.png' },
-  {
-    nombre: 'Palacio Mundo Imperial',
-    logo: '/assets/img/empresas/HotelMundoPalacio/palacio-logo.svg',
-  },
+  { nombre: 'Walmart', logo: '/assets/img/empresas/Walmart/walmatsf.png' },
+  { nombre: 'Hotel Hyatt', logo: '/assets/img/empresas/HotelHyatt/hyatt.svg' },
+  { nombre: 'Lacoste', logo: '/assets/img/empresas/lacoste.png' },
+  { nombre: 'Interlomas', logo: '/assets/img/empresas/interlomas.jpg' },
+  { nombre: 'Pull&Bear', logo: '/assets/img/empresas/pullandbear.png' },
+  { nombre: 'Zara', logo: '/assets/img/empresas/zara.png' },
   { nombre: 'Nike', logo: '/assets/img/empresas/nike.png' },
   { nombre: 'Adidas', logo: '/assets/img/empresas/adidas.svg' },
-  { nombre: 'Zara', logo: '/assets/img/empresas/zara.png' },
-  { nombre: 'Lacoste', logo: '/assets/img/empresas/lacoste.png' },
 ]
 
 export default function ClientsSlider() {
   return (
     <section className="overflow-hidden bg-white py-16">
       <div className="mx-auto mb-10 max-w-7xl px-6 text-center">
-        <h2 className="text-dark text-2xl font-bold">Empresas que confían en nosotros</h2>
+        <h2 className="text-dark text-2xl font-bold">Algunos de nuestros clientes</h2>
       </div>
 
       {/* Track duplicado para loop infinito con CSS */}
