@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from 'react'
 
 /**
- * Contador de cifras con círculos, replica `.contador` / `.contador__circle`
- * del index legacy. Cada círculo anima el conteo al entrar en viewport.
+ * Contador de cifras con círculos, réplica exacta de `.contador` /
+ * `.contador__circle` del legacy (13/15/17rem, doble borde gris, hover negro).
+ * Cada círculo anima el conteo al entrar en viewport.
  */
 const stats = [
   { prefijo: '+', valor: 200, sufijo: '', label: 'Empresas líderes\nconfían en nosotros' },
@@ -66,16 +67,19 @@ function StatItem({ prefijo, valor, sufijo, label }: (typeof stats)[number]) {
   }, [])
 
   return (
-    <li ref={ref} className="flex w-full flex-col items-center gap-4 font-bold">
-      <div className="group relative flex h-32 w-32 items-center justify-center rounded-full border-[1.5rem] border-[rgba(240,240,240,0.82)] bg-[rgba(200,200,200,0.9)] transition-all duration-1000 hover:bg-black hover:text-white md:h-36 md:w-36 lg:h-44 lg:w-44">
-        <p className="text-2xl md:text-3xl lg:text-4xl">
+    <li ref={ref} className="flex w-full flex-col items-center gap-[1rem] font-bold">
+      <div className="group relative flex h-[13rem] w-[13rem] flex-col items-center justify-center rounded-full border-[1.5rem] border-[rgba(240,240,240,0.815)] bg-[rgba(200,200,200,0.897)] text-black transition-all duration-1000 hover:bg-black hover:text-white md:h-[15rem] md:w-[15rem] lg:h-[17rem] lg:w-[17rem]">
+        <p className="z-10 text-[2rem] md:text-[2.6rem] lg:text-[3.1rem]">
           {prefijo}
           {count}
           {sufijo}
         </p>
-        <div className="absolute h-full w-full rounded-full border-[1.5rem] border-[rgba(220,220,220,0.7)]" />
+        {/* contador__circle_background */}
+        <div className="absolute h-full w-full rounded-full border-[1.5rem] border-[rgba(220,220,220,0.699)]" />
       </div>
-      <p className="text-dark text-center text-lg whitespace-pre-line md:text-2xl">{label}</p>
+      <p className="text-center text-[1.8rem] whitespace-pre-line text-black md:text-[2.4rem] lg:text-[2.6rem]">
+        {label}
+      </p>
     </li>
   )
 }
@@ -83,11 +87,11 @@ function StatItem({ prefijo, valor, sufijo, label }: (typeof stats)[number]) {
 export default function Contador() {
   return (
     <section className="bg-white">
-      <div className="mx-auto flex w-[min(95%,140rem)] flex-col gap-20 py-20 text-center md:pt-40">
-        <h2 className="text-dark m-0 text-2xl font-bold uppercase md:text-3xl">
+      <div className="mx-auto flex w-[min(95%,140rem)] flex-col gap-[5rem] py-[5rem] text-center md:pt-[10rem]">
+        <h2 className="m-0 text-[3rem] font-bold uppercase md:text-[4.5rem] lg:text-[4.8rem]">
           Nuestro equipo / GRUMEX en otros datos
         </h2>
-        <ul className="grid grid-cols-2 gap-12 md:grid-cols-3">
+        <ul className="m-0 grid list-none grid-cols-2 gap-y-[4rem] p-0 md:grid-cols-3">
           {stats.map((s) => (
             <StatItem key={s.label} {...s} />
           ))}

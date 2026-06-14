@@ -8,8 +8,9 @@ interface ServiceIntroProps {
 }
 
 /**
- * Sección de introducción negra con logo, título, párrafo y CTA a WhatsApp.
- * Replica `.informacion` / `.informacion__contenedor` del sitio original.
+ * Sección de introducción, réplica de `.informacion` del legacy:
+ * fondo negro, logo (35rem/48rem), título `.bold_header`, párrafo
+ * `.texto_header` y botón `.formulario__submit-contacto` hacia WhatsApp.
  */
 export default function ServiceIntro({ titulo, texto }: ServiceIntroProps) {
   const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -18,27 +19,33 @@ export default function ServiceIntro({ titulo, texto }: ServiceIntroProps) {
 
   return (
     <section className="bg-black">
-      <div className="mx-auto w-[min(95%,140rem)] px-2 py-16 text-center text-white lg:py-12">
+      <div className="mx-auto w-[min(95%,140rem)] px-[1.5rem] pt-[4rem] pb-[6rem] text-center text-white lg:pt-[2rem]">
+        {/* spacersch */}
+        <div className="h-[2rem] w-full" />
+
         {/* Logo */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/assets/img/GRUMEX/GRUMEX.svg"
           alt="GRUMEX"
-          className="mx-auto mb-8 w-full max-w-[35rem] lg:max-w-[48rem]"
+          className="mx-auto w-full md:w-[35rem] lg:w-[48rem]"
         />
 
-        <div className="mb-12">
-          <h1 className="mb-4 text-2xl font-bold md:text-[2.4rem]">{titulo}</h1>
-          <p className="mx-auto max-w-5xl text-lg leading-relaxed text-white/90 md:text-[2.1rem] md:leading-snug">
-            {texto}
-          </p>
+        {/* spacersch */}
+        <div className="h-[2rem] w-full" />
+
+        <div className="mb-[3rem]">
+          <h1 className="m-0 text-[2.2rem] font-extrabold tracking-[0.2rem] uppercase md:text-[2.4rem]">
+            {titulo}
+          </h1>
+          <p className="m-0 mt-[1.5rem] text-[1.9rem] md:mx-[5rem] md:text-[2.1rem]">{texto}</p>
         </div>
 
         <Link
           href={waHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block border border-white bg-black px-12 py-4 text-lg font-bold text-white transition-colors duration-300 hover:bg-white hover:text-black"
+          className="mt-[1rem] inline-block border border-white bg-black px-[6rem] py-[1.5rem] text-[1.8rem] font-bold text-white transition-colors duration-300 hover:bg-white hover:text-black"
         >
           Cotiza ahora
         </Link>

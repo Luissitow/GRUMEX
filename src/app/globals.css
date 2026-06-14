@@ -1,35 +1,44 @@
 @import 'tailwindcss';
 
-@theme inline {
+@theme {
+  /* Colores del legacy */
   --color-primary: #007df4;
-  --color-primary-dark: #0062c3;
   --color-secondary: #00c8c2;
-  --color-dark: #111111;
-  --color-gray-soft: #f5f5f5;
-  --font-sans: var(--font-montserrat);
+  --color-dark: #1d1d1d; /* rgb(29,29,29) — gris oscuro del legacy */
+  --font-sans: var(--font-montserrat), sans-serif;
+
+  /* Breakpoints idénticos a las media queries del legacy */
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 960px;
+  --breakpoint-lg: 1024px;
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #111111;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-montserrat), sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/*
+ * Base del legacy: font-size 62.5% → 1rem = 10px.
+ * Todos los valores en rem de los componentes están calibrados a esta escala,
+ * igual que en assets/css/app.css del proyecto original.
+ */
 html {
+  font-size: 62.5%;
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-weight: 400;
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Slider de clientes (marquee infinito) */
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -43,6 +52,7 @@ html {
   animation: marquee 28s linear infinite;
 }
 
+/* Gradiente animado del crédito Zyber en el footer */
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -57,4 +67,21 @@ html {
 
 .animate-gradient {
   animation: gradientAnimation 6s ease infinite;
+}
+
+/* Preloader: parpadeo del logo, igual que preloader.css del legacy */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-fade-out {
+  animation: fadeOut 2s ease-in-out infinite;
 }

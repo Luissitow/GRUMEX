@@ -43,16 +43,18 @@ export default function CasosExito() {
   const [actual, setActual] = useState(0)
 
   return (
-    <section className="bg-gray-soft py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="text-dark mb-4 text-4xl font-extrabold">Casos de Éxito</h2>
-          <p className="text-gray-500">Proyectos que hablan por nosotros</p>
+    <section className="bg-white py-[6rem]">
+      <div className="mx-auto w-[min(95%,140rem)] px-[2rem]">
+        <div className="mb-[5rem] text-center">
+          <h2 className="m-0 text-[3rem] font-bold uppercase md:text-[4.5rem] lg:text-[4.8rem]">
+            Casos de Éxito
+          </h2>
+          <p className="mt-[1rem] text-[1.8rem] text-gray-500">Proyectos que hablan por nosotros</p>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-[3rem] lg:grid-cols-2">
           {/* Imagen */}
-          <div className="relative h-80 overflow-hidden rounded-2xl lg:h-auto">
+          <div className="relative h-[32rem] overflow-hidden rounded-[2rem] lg:h-auto lg:min-h-[40rem]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={actual}
@@ -82,31 +84,37 @@ export default function CasosExito() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
               >
-                <span className="bg-primary/10 text-primary mb-4 inline-block rounded-full px-4 py-1 text-sm font-semibold">
+                <span className="bg-primary/10 text-primary mb-[1.5rem] inline-block rounded-full px-[1.5rem] py-[0.5rem] text-[1.4rem] font-semibold">
                   {casos[actual].servicio}
                 </span>
-                <h3 className="text-dark mb-4 text-3xl font-extrabold">{casos[actual].cliente}</h3>
-                <p className="mb-8 leading-relaxed text-gray-500">{casos[actual].descripcion}</p>
-                <div className="h-10">
+                <h3 className="mb-[1.5rem] text-[2.6rem] font-extrabold text-black md:text-[3.2rem]">
+                  {casos[actual].cliente}
+                </h3>
+                <p className="mb-[3rem] text-[1.8rem] leading-relaxed text-gray-600">
+                  {casos[actual].descripcion}
+                </p>
+                <div className="h-[4rem]">
                   <Image
                     src={casos[actual].logo}
                     alt={casos[actual].cliente}
                     width={120}
                     height={40}
-                    className="max-h-10 w-auto object-contain grayscale"
+                    className="max-h-[4rem] w-auto object-contain grayscale"
                   />
                 </div>
               </motion.div>
             </AnimatePresence>
 
             {/* Navegación */}
-            <div className="mt-10 flex gap-3">
+            <div className="mt-[3rem] flex gap-[1rem]">
               {casos.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActual(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === actual ? 'bg-primary w-10' : 'w-2 bg-gray-300 hover:bg-gray-400'
+                  className={`h-[0.8rem] rounded-full transition-all duration-300 ${
+                    i === actual
+                      ? 'bg-primary w-[4rem]'
+                      : 'w-[0.8rem] bg-gray-300 hover:bg-gray-400'
                   }`}
                   aria-label={`Caso ${i + 1}`}
                 />

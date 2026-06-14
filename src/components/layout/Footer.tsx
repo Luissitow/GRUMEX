@@ -23,14 +23,14 @@ const redes = [
 
 export default function Footer() {
   return (
-    <footer className="bg-black py-8 text-white">
-      <div className="mx-auto grid w-[min(95%,140rem)] gap-12 py-8 md:grid-cols-3">
+    <footer className="bg-black py-[2rem] text-white">
+      <div className="mx-auto w-[min(95%,140rem)] md:grid md:grid-cols-3 md:gap-[3rem] md:py-[4rem]">
         {/* Redes sociales */}
-        <div className="flex flex-col px-4 py-8 text-center md:px-0 md:text-left">
-          <h3 className="mb-8 border-b border-white pb-2 text-center text-xl font-bold">
+        <div className="flex flex-col py-[2rem] pb-[3rem] text-center md:pl-[3rem] md:text-left lg:pl-0">
+          <h3 className="mb-[2.9rem] text-center text-[2.1rem] font-bold md:border-b md:border-white md:pb-[1rem]">
             Redes Sociales
           </h3>
-          <nav className="flex justify-center gap-6 md:justify-start md:pl-8">
+          <nav className="flex justify-center gap-[2rem] pl-[2rem] md:justify-start">
             {redes.map((red) => (
               <a
                 key={red.nombre}
@@ -40,7 +40,12 @@ export default function Footer() {
                 aria-label={red.nombre}
                 className="transition-transform hover:scale-110"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-[2.6rem] w-[2.6rem]"
+                  aria-hidden="true"
+                >
                   <path d={red.path} />
                 </svg>
               </a>
@@ -49,8 +54,8 @@ export default function Footer() {
         </div>
 
         {/* Crédito / Zyber */}
-        <div className="flex flex-col items-center gap-6 text-center">
-          <h3 className="border-b border-white pb-2 text-xl font-bold">
+        <div className="flex flex-col items-center gap-[3rem] py-[2rem] text-center md:pt-[3.5rem] lg:pt-0">
+          <h3 className="text-center text-[2.1rem] font-bold md:border-b md:border-white md:pb-[1rem]">
             <a
               href="https://zyber.company/"
               target="_blank"
@@ -61,21 +66,21 @@ export default function Footer() {
             </a>
           </h3>
           <a href="https://zyber.company/" target="_blank" rel="noopener noreferrer">
-            <span className="inline-block border border-white bg-black px-12 py-4 text-lg font-bold text-white transition-colors duration-300 hover:bg-white hover:text-black">
+            <span className="inline-block border border-white bg-black px-[6rem] py-[1.5rem] text-[1.8rem] font-bold text-white transition-colors duration-300 hover:bg-white hover:text-black">
               Visitar Zyber
             </span>
           </a>
         </div>
 
         {/* Copyright */}
-        <div className="flex flex-col items-center justify-center text-center md:items-start md:text-left">
+        <div className="flex flex-col items-center justify-center py-[2rem] text-center md:items-start md:text-left">
           <p className="font-extrabold">
             GRUMEX -{' '}
             <span className="font-normal">
               Todos los derechos reservados {new Date().getFullYear()}
             </span>
           </p>
-          <a href="#" className="mt-4">
+          <a href="#" className="mt-[2rem]">
             <p>Política de privacidad</p>
             <p>Términos y condiciones</p>
           </a>
