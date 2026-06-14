@@ -59,32 +59,30 @@ export default function Header() {
           />
         </Link>
 
-        {/* Nav desktop — ícono + texto en fila (igual al original) */}
-        <div className="hidden items-center justify-between md:flex">
-          <nav className="flex items-center">
-            {servicios.map((s) => (
-              <Link
-                key={s.href}
-                href={s.href}
-                className="group flex items-center gap-1 px-2 py-3 text-center text-white transition-colors duration-500 hover:bg-white hover:text-black"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={s.icono}
-                  alt={s.label}
-                  className="h-[3.2rem] w-[3.2rem] object-contain pl-2 group-hover:invert"
-                />
-                <span className="text-left text-xs leading-tight font-medium">
-                  {s.lines.map((line, i) => (
-                    <span key={i} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </span>
-              </Link>
-            ))}
-          </nav>
-        </div>
+        {/* Nav desktop — distribuido a todo el ancho del 80%, igual que el original */}
+        <nav className="hidden items-center justify-between md:flex">
+          {servicios.map((s) => (
+            <Link
+              key={s.href}
+              href={s.href}
+              className="group flex items-center gap-2 px-3 py-3 text-white transition-colors duration-500 hover:bg-white hover:text-black"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={s.icono}
+                alt={s.label}
+                className="h-[3.8rem] w-[3.8rem] object-contain pl-2 group-hover:invert"
+              />
+              <span className="text-left text-xs leading-tight font-medium">
+                {s.lines.map((line, i) => (
+                  <span key={i} className="block">
+                    {line}
+                  </span>
+                ))}
+              </span>
+            </Link>
+          ))}
+        </nav>
 
         {/* Hamburger mobile */}
         <button
