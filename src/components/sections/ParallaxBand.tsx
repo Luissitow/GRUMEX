@@ -2,10 +2,7 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
-
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '527229666219'
 
 interface ParallaxBandProps {
   imagen: string
@@ -32,10 +29,6 @@ export default function ParallaxBand({ imagen, eyebrow, titulo, texto }: Paralla
   const imgY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%'])
   const contentY = useTransform(scrollYProgress, [0, 1], ['70px', '-70px'])
   const overlay = useTransform(scrollYProgress, [0, 0.5, 1], [0.75, 0.55, 0.75])
-
-  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    '¡Hola GRUMEX! Quiero más información sobre sus servicios.'
-  )}`
 
   return (
     <section ref={ref} className="relative h-[170vh] md:h-[200vh]">
@@ -70,14 +63,6 @@ export default function ParallaxBand({ imagen, eyebrow, titulo, texto }: Paralla
               {texto}
             </p>
           )}
-          <Link
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-[3rem] inline-block border border-white bg-transparent px-[6rem] py-[1.5rem] text-[1.8rem] font-bold text-white transition-colors duration-300 hover:bg-white hover:text-black"
-          >
-            Cotiza ahora
-          </Link>
         </motion.div>
       </div>
     </section>
