@@ -1,7 +1,9 @@
 /**
  * Slider de logos de clientes, réplica de `.contador` + `.new-slider` del
- * legacy (slider.css): fondo blanco, h2, marquee continuo con imágenes de
- * 10rem de alto. Se duplica la lista para un loop sin cortes.
+ * legacy (slider.css): fondo blanco, h2 y marquee continuo. Mejorado con
+ * contenedores de tamaño uniforme, escala de grises que se colorea al hover,
+ * pausa al pasar el mouse y bordes difuminados. La lista se duplica para un
+ * loop sin cortes.
  */
 const clientes = [
   { nombre: 'Santa Fe', logo: '/assets/img/empresas/santafe.jpg' },
@@ -20,25 +22,33 @@ const clientes = [
 
 export default function ClientsSlider() {
   return (
-    <section className="mx-auto flex w-[min(95%,140rem)] flex-col gap-[5rem] bg-white py-[5rem] text-center md:pt-[10rem]">
-      <h2 className="m-0 text-[3rem] font-bold uppercase md:text-[4.5rem] lg:text-[4.8rem]">
+    <section className="bg-white py-[5rem] md:py-[8rem]">
+      <h2 className="mb-[5rem] text-center text-[3rem] font-bold uppercase md:text-[4.5rem] lg:text-[4.8rem]">
         Algunos de nuestros clientes
       </h2>
 
-      <div className="relative flex w-full overflow-hidden px-[10px]">
+      {/* group → pausa la animación al hover. Máscara → bordes difuminados. */}
+      <div className="group relative flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]">
         {[0, 1].map((track) => (
-          <div key={track} className="animate-marquee flex shrink-0" aria-hidden={track === 1}>
+          <ul
+            key={track}
+            aria-hidden={track === 1}
+            className="animate-marquee flex shrink-0 items-center group-hover:[animation-play-state:paused]"
+          >
             {clientes.map((c) => (
-              <div key={`${c.nombre}-${track}`} className="flex shrink-0 items-center px-[3rem]">
+              <li
+                key={`${c.nombre}-${track}`}
+                className="flex h-[10rem] w-[16rem] shrink-0 items-center justify-center px-[2rem] md:w-[22rem]"
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={c.logo}
                   alt={c.nombre}
-                  className="h-[8rem] w-auto max-w-full object-contain md:h-[10rem]"
+                  className="max-h-[7rem] max-w-full object-contain opacity-60 grayscale transition-all duration-300 hover:scale-105 hover:opacity-100 hover:grayscale-0"
                 />
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         ))}
       </div>
     </section>
