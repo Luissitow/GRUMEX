@@ -6,6 +6,12 @@ import { z } from 'zod'
 import { useState } from 'react'
 
 const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '527229666219'
+/**
+ * Endpoint del formulario. En estático (Hostinger) se usa un servicio externo
+ * como Formspree (p. ej. https://formspree.io/f/xxxx). Si no está configurado,
+ * el formulario solo valida y muestra el mensaje de éxito (modo demo).
+ */
+const CONTACT_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT
 
 const schema = z.object({
   nombre: z.string().min(2, 'Mínimo 2 caracteres'),
@@ -40,11 +46,13 @@ export default function Contacto() {
   async function onSubmit(data: FormData) {
     setEnviando(true)
     try {
-      await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      })
+      if (CONTACT_ENDPOINT) {
+        await fetch(CONTACT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        })
+      }
       setEnviado(true)
       reset()
     } finally {

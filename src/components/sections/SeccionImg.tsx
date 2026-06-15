@@ -21,7 +21,7 @@ export default function SeccionImg({ boxes }: { boxes: SeccionImgBox[] }) {
               src={box.img}
               alt={box.titulo}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.3] group-hover:translate-x-[10%] group-hover:translate-y-[10%]"
+              className="object-cover transition-transform duration-500 group-hover:translate-x-[10%] group-hover:translate-y-[10%] group-hover:scale-[1.3]"
               sizes="(max-width: 960px) 50vw, 45vw"
             />
             {/* overlay gradiente al hover */}

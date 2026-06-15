@@ -523,9 +523,15 @@ export const subcategorias: Record<string, Subcategoria[]> = {
       ],
       seccionImg: [
         { img: `${DO}/doblez1.jpg`, titulo: 'Doblez de entrepaños' },
-        { img: `${DO}/doblez2.jpg`, titulo: 'Doblez con radio específico para la industria ferroviaria' },
+        {
+          img: `${DO}/doblez2.jpg`,
+          titulo: 'Doblez con radio específico para la industria ferroviaria',
+        },
         { img: `${DO}/doblez3.jpg`, titulo: 'Doblez de piezas para industria eléctrica' },
-        { img: `${DO}/doblez4.jpg`, titulo: 'Pieza en 3/16” con radio de 1/2” para la industria ferroviaria' },
+        {
+          img: `${DO}/doblez4.jpg`,
+          titulo: 'Pieza en 3/16” con radio de 1/2” para la industria ferroviaria',
+        },
       ],
     },
     {
@@ -564,10 +570,7 @@ export function getSubcategorias(servicioSlug: string): Subcategoria[] {
   return subcategorias[servicioSlug] ?? []
 }
 
-export function getSubcategoria(
-  servicioSlug: string,
-  subSlug: string
-): Subcategoria | undefined {
+export function getSubcategoria(servicioSlug: string, subSlug: string): Subcategoria | undefined {
   return getSubcategorias(servicioSlug).find((s) => s.slug === subSlug)
 }
 
