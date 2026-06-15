@@ -1,6 +1,7 @@
 import Hero from '@/components/sections/Hero'
 import ServiceIntro from '@/components/sections/ServiceIntro'
 import VideoSection from '@/components/sections/VideoSection'
+import Boxwell from '@/components/sections/Boxwell'
 import ClientsSlider from '@/components/sections/ClientsSlider'
 import CasosExito from '@/components/sections/CasosExito'
 import Contador from '@/components/sections/Contador'
@@ -15,6 +16,7 @@ export default function HomePage() {
         texto="Nuestra visión integral y enfoque innovador nos capacitan para brindar soluciones completas y de alta calidad, lo que nos ha permitido crecer y sobresalir en el mercado. Nos especializamos en la producción y comercialización de estanterías móviles, mobiliario para retail, servicios de corte láser, doblado, maquinado CNC y pintura electrostática."
       />
       <VideoSection />
+      <Boxwell />
       <ClientsSlider />
       <CasosExito />
       <Contador />
