@@ -36,9 +36,7 @@ export default function HomePage() {
         <ClientsSlider />
       </Reveal>
 
-      <Reveal>
-        <CasosExito />
-      </Reveal>
+      <CasosExito />
 
       <Reveal>
         <Contador />
