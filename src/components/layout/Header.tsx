@@ -1,115 +1,101 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 const servicios = [
-  { label: 'Manufactura', href: '/manufactura' },
-  { label: 'Mobiliaria', href: '/mobiliaria' },
-  { label: 'Construcción', href: '/construccion' },
-  { label: 'Mármol', href: '/marmol' },
-  { label: 'Importación', href: '/importacion' },
-  { label: 'Logística y Maniobras', href: '/logistica' },
+  {
+    label: 'Mobiliaria',
+    href: '/mobiliaria',
+    icono: '/assets/img/Index/Mobiliaria/Mobiliaria.svg',
+  },
+  {
+    label: 'Construcción',
+    href: '/construccion',
+    icono: '/assets/img/Index/Construcción/Construccionicon.svg',
+  },
+  {
+    label: 'Manufactura',
+    href: '/manufactura',
+    icono: '/assets/img/Index/manufactura/manufacturaicon.svg',
+  },
+  {
+    label: 'Importación',
+    href: '/importacion',
+    icono: '/assets/img/Index/Importación/servicios/iconoimportacion.svg',
+  },
+  {
+    label: 'Marmol',
+    href: '/marmol',
+    icono: '/assets/img/Index/Marmol/marmol.svg',
+  },
+  {
+    label: 'Logistica y maniobras',
+    href: '/logistica',
+    icono: '/assets/img/Index/Logisticaymaniobras/iconologisticaymaniobras.svg',
+  },
 ]
 
+/**
+ * Cabecera fija, replica `.navegacion` del legacy:
+ * fondo negro, contenedor grid 20%/80% en ≥960px, logo 8rem, ítems a la
+ * derecha con ícono 3.8rem + texto; hover invierte a blanco. En móvil se
+ * abre con el botón hamburguesa (height toggle, igual que .navegacion__nav).
+ */
 export default function Header() {
   const [menuAbierto, setMenuAbierto] = useState(false)
-  const [sticky, setSticky] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setSticky(window.scrollY > 60)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
-    <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-        sticky ? 'bg-dark shadow-lg' : 'bg-transparent'
-      }`}
-    >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/assets/img/GRUMEX/GRUMEX.svg"
-            alt="GRUMEX"
-            width={140}
-            height={40}
-            priority
-          />
-        </Link>
+    <header className="site-header fixed top-0 left-0 z-[1000] w-full bg-black shadow-[0.1rem_0.2rem_0.1rem_rgb(29,29,29)] transition-transform duration-500 ease-in-out">
+      <div className="mx-auto grid w-[min(95%,140rem)] md:grid-cols-[20%_80%]">
+        {/* Fila: logo + hamburguesa */}
+        <div className="flex flex-row items-center justify-between md:block">
+          <Link href="/">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/img/GRUMEX/GRUMEX.svg"
+              alt="GRUMEX"
+              className="h-[7rem] w-auto pl-[2rem] md:h-[8rem] md:pl-0"
+            />
+          </Link>
 
-        {/* Links desktop */}
-        <ul className="hidden items-center gap-8 md:flex">
-          {servicios.map((s) => (
-            <li key={s.href}>
-              <Link
-                href={s.href}
-                className="hover:text-primary text-sm font-medium text-white transition-colors"
-              >
-                {s.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <button
+            aria-label="Abrir menú"
+            aria-expanded={menuAbierto}
+            onClick={() => setMenuAbierto(!menuAbierto)}
+            className="cursor-pointer pr-[2rem] text-[2.6rem] text-white md:hidden"
+          >
+            <span className="block leading-none">{menuAbierto ? '✕' : '☰'}</span>
+          </button>
+        </div>
 
-        {/* CTA desktop */}
-        <Link
-          href="/#contacto"
-          className="bg-primary hover:bg-primary-dark hidden rounded-full px-5 py-2 text-sm font-semibold text-white transition-colors md:block"
+        {/* Navegación */}
+        <nav
+          className={[
+            'overflow-hidden transition-all duration-500 ease-in-out',
+            menuAbierto ? 'h-[40rem] opacity-100' : 'h-0 opacity-0',
+            'md:flex md:h-auto md:flex-row md:justify-end md:opacity-100',
+          ].join(' ')}
         >
-          Cotiza ahora
-        </Link>
-
-        {/* Hamburger mobile */}
-        <button
-          aria-label="Abrir menú"
-          aria-expanded={menuAbierto}
-          onClick={() => setMenuAbierto(!menuAbierto)}
-          className="flex flex-col gap-1.5 md:hidden"
-        >
-          <span
-            className={`block h-0.5 w-6 bg-white transition-transform duration-300 ${menuAbierto ? 'translate-y-2 rotate-45' : ''}`}
-          />
-          <span
-            className={`block h-0.5 w-6 bg-white transition-opacity duration-300 ${menuAbierto ? 'opacity-0' : ''}`}
-          />
-          <span
-            className={`block h-0.5 w-6 bg-white transition-transform duration-300 ${menuAbierto ? '-translate-y-2 -rotate-45' : ''}`}
-          />
-        </button>
-      </nav>
-
-      {/* Menú mobile */}
-      <div
-        className={`bg-dark overflow-hidden transition-all duration-300 md:hidden ${
-          menuAbierto ? 'max-h-96' : 'max-h-0'
-        }`}
-      >
-        <ul className="flex flex-col gap-1 px-6 pt-2 pb-6">
           {servicios.map((s) => (
-            <li key={s.href}>
-              <Link
-                href={s.href}
-                onClick={() => setMenuAbierto(false)}
-                className="hover:text-primary block py-2 text-sm font-medium text-white transition-colors"
-              >
-                {s.label}
-              </Link>
-            </li>
-          ))}
-          <li className="mt-4">
             <Link
-              href="/#contacto"
+              key={s.href}
+              href={s.href}
               onClick={() => setMenuAbierto(false)}
-              className="bg-primary block rounded-full px-5 py-2 text-center text-sm font-semibold text-white"
+              className="group flex flex-col items-center py-[0.8rem] text-center text-white transition-colors duration-500 hover:bg-white hover:text-black md:flex-row md:py-0"
             >
-              Cotiza ahora
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={s.icono}
+                alt={s.label}
+                className="h-[3.2rem] w-auto transition-all duration-500 group-hover:invert md:h-[3.8rem] md:pl-[1rem]"
+              />
+              <p className="m-0 text-[1.4rem] md:mr-[1.2rem] lg:mx-[1.4rem] lg:text-[1.6rem]">
+                {s.label}
+              </p>
             </Link>
-          </li>
-        </ul>
+          ))}
+        </nav>
       </div>
     </header>
   )
