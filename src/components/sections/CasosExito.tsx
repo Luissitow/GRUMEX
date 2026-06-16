@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 
@@ -57,6 +57,7 @@ const casos = [
 
 export default function CasosExito() {
   const ref = useRef<HTMLDivElement>(null)
+  const stickyRef = useRef<HTMLDivElement>(null)
   const [actual, setActual] = useState(0)
   const total = casos.length
 
@@ -70,6 +71,23 @@ export default function CasosExito() {
     const i = Math.min(total - 1, Math.max(0, Math.floor(v * total)))
     setActual(i)
   })
+
+  // Oculta el header global mientras esta sección llena la pantalla.
+  useEffect(() => {
+    const el = stickyRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        document.documentElement.classList.toggle('hide-header', entry.intersectionRatio >= 0.85)
+      },
+      { threshold: [0, 0.85, 1] }
+    )
+    observer.observe(el)
+    return () => {
+      observer.disconnect()
+      document.documentElement.classList.remove('hide-header')
+    }
+  }, [])
 
   // Salta al segmento de scroll de un caso (para thumbnails/flechas).
   function scrollToIndex(i: number) {
@@ -85,7 +103,7 @@ export default function CasosExito() {
   return (
     // Sección alta: da recorrido de scroll para todos los casos.
     <section ref={ref} style={{ height: `${total * 60}vh` }}>
-      <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
+      <div ref={stickyRef} className="sticky top-0 flex h-screen flex-col overflow-hidden">
         {/* Slider principal: grid 70/30 */}
         <div className="grid min-h-0 flex-1 md:grid-cols-[70%_30%] lg:grid-cols-[78%_22%]">
           {/* Izquierda: imagen grande con overlay */}
@@ -165,25 +183,27 @@ export default function CasosExito() {
         </div>
 
         {/* Thumbnails */}
-        <div className="flex h-[16vh] max-h-[18rem] w-full shrink-0 gap-[1rem] overflow-x-auto bg-black px-[1rem] py-[1rem] md:gap-[2rem] md:px-[2rem]">
+        <div className="flex h-[26vh] max-h-[26rem] w-full shrink-0 items-stretch gap-[1rem] overflow-x-auto bg-black px-[1rem] py-[1.5rem] md:gap-[1.5rem] md:px-[2rem]">
           {casos.map((c, i) => (
             <button
               key={c.cliente}
               onClick={() => scrollToIndex(i)}
               aria-label={c.cliente}
               className={[
-                'relative h-full w-[15rem] shrink-0 overflow-hidden transition-all duration-500 md:w-[40rem]',
-                i === actual ? 'ring-2 ring-white brightness-110' : 'brightness-[0.6]',
+                'relative h-full shrink-0 overflow-hidden rounded-[0.4rem] transition-all duration-500',
+                i === actual
+                  ? 'w-[20rem] opacity-100 ring-4 ring-white md:w-[34rem]'
+                  : 'w-[16rem] opacity-50 grayscale hover:opacity-80 hover:grayscale-0 md:w-[26rem]',
               ].join(' ')}
             >
               <Image
                 src={c.imagen}
                 alt={c.cliente}
                 fill
-                className="object-cover"
-                sizes="(max-width: 960px) 15rem, 40rem"
+                className="object-cover object-center"
+                sizes="(max-width: 960px) 20rem, 34rem"
               />
-              <span className="absolute right-[5px] bottom-[5px] block w-[28%] md:right-[10px] md:bottom-[10px] md:w-[18%]">
+              <span className="absolute right-[8px] bottom-[8px] block w-[26%] md:w-[16%]">
                 <Image
                   src={c.logo}
                   alt={c.cliente}
