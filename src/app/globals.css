@@ -1,26 +1,93 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Colores del legacy */
+  --color-primary: #007df4;
+  --color-secondary: #00c8c2;
+  --color-dark: #1d1d1d; /* rgb(29,29,29) — gris oscuro del legacy */
+  --font-sans: var(--font-montserrat), sans-serif;
+
+  /* Breakpoints idénticos a las media queries del legacy */
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 960px;
+  --breakpoint-lg: 1024px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/*
+ * Base del legacy: font-size 62.5% → 1rem = 10px.
+ * Todos los valores en rem de los componentes están calibrados a esta escala,
+ * igual que en assets/css/app.css del proyecto original.
+ */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-weight: 400;
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Slider de clientes (marquee infinito) */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* Gradiente animado del crédito Zyber en el footer */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradientAnimation 6s ease infinite;
+}
+
+/* Preloader: parpadeo del logo, igual que preloader.css del legacy */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-fade-out {
+  animation: fadeOut 2s ease-in-out infinite;
+}
+
+/* Oculta el header cuando una banda inmersiva (parallax) llena la pantalla */
+html.hide-header .site-header {
+  transform: translateY(-100%);
+  pointer-events: none;
 }
