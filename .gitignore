@@ -24,6 +24,12 @@
 .DS_Store
 *.pem
 
+# editor
+/.vscode/
+
+# build artifacts (export comprimido para Hostinger)
+*.zip
+
 # debug
 npm-debug.log*
 yarn-debug.log*

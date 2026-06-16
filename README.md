@@ -8,7 +8,7 @@ visual original.
 
 ---
 
-## 🚀 Stack
+##  Stack
 
 | Tecnología | Uso |
 |---|---|
@@ -20,7 +20,7 @@ visual original.
 
 ---
 
-## 📁 Estructura
+##  Estructura
 
 ```
 src/
@@ -47,7 +47,7 @@ a partir de `src/lib/servicios.ts` mediante rutas dinámicas con
 
 ---
 
-## 🛠️ Desarrollo
+##  Desarrollo
 
 ```bash
 npm install        # instalar dependencias
@@ -67,7 +67,7 @@ npm run test:e2e     # tests end-to-end (Playwright)
 
 ---
 
-## 🌐 Despliegue
+##  Despliegue
 
 ### Estático (Hostinger / S3 / GitHub Pages)
 
@@ -92,8 +92,7 @@ y restaurar la API route `app/api/leads` (disponible en el historial de git)
 para procesar el formulario en el backend.
 
 ---
-
-## ⚙️ Variables de entorno
+##  Variables de entorno
 
 Copia `.env.example` a `.env` y completa:
 
@@ -109,7 +108,7 @@ NEXT_PUBLIC_CONTACT_ENDPOINT=""   # endpoint del formulario (ej. Formspree)
 
 ---
 
-## ✨ Características
+##  Características
 
 - **11 páginas estáticas (SSG)**: home, 6 servicios y 4 subcategorías de manufactura.
 - **Identidad visual idéntica** al sitio original (escala 10px, breakpoints 960/1024).
