@@ -46,7 +46,7 @@ export default function Header() {
   const [menuAbierto, setMenuAbierto] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 z-[1000] w-full bg-black shadow-[0.1rem_0.2rem_0.1rem_rgb(29,29,29)]">
+    <header className="site-header fixed top-0 left-0 z-[1000] w-full bg-black shadow-[0.1rem_0.2rem_0.1rem_rgb(29,29,29)] transition-transform duration-500 ease-in-out">
       <div className="mx-auto grid w-[min(95%,140rem)] md:grid-cols-[20%_80%]">
         {/* Fila: logo + hamburguesa */}
         <div className="flex flex-row items-center justify-between md:block">

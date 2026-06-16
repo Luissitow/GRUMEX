@@ -85,3 +85,9 @@ body {
 .animate-fade-out {
   animation: fadeOut 2s ease-in-out infinite;
 }
+
+/* Oculta el header cuando una banda inmersiva (parallax) llena la pantalla */
+html.hide-header .site-header {
+  transform: translateY(-100%);
+  pointer-events: none;
+}

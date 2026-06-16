@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 
@@ -18,12 +18,30 @@ interface ParallaxBandProps {
  */
 export default function ParallaxBand({ imagen, eyebrow, titulo, texto }: ParallaxBandProps) {
   const ref = useRef<HTMLDivElement>(null)
+  const stickyRef = useRef<HTMLDivElement>(null)
   const reduce = useReducedMotion()
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
   })
+
+  // Oculta el header global mientras esta banda llena la pantalla.
+  useEffect(() => {
+    const el = stickyRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        document.documentElement.classList.toggle('hide-header', entry.intersectionRatio >= 0.85)
+      },
+      { threshold: [0, 0.85, 1] }
+    )
+    observer.observe(el)
+    return () => {
+      observer.disconnect()
+      document.documentElement.classList.remove('hide-header')
+    }
+  }, [])
 
   // La imagen se desplaza despacio (parallax); el contenido sube al avanzar.
   const imgY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%'])
@@ -33,7 +51,7 @@ export default function ParallaxBand({ imagen, eyebrow, titulo, texto }: Paralla
   return (
     <section ref={ref} className="relative h-[170vh] md:h-[200vh]">
       {/* Capa pinned a la pantalla durante el scroll */}
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div ref={stickyRef} className="sticky top-0 h-screen overflow-hidden">
         {/* Imagen de fondo con parallax */}
         <motion.div className="absolute inset-0 scale-110" style={reduce ? undefined : { y: imgY }}>
           <Image src={imagen} alt="" fill className="object-cover" sizes="100vw" />
