@@ -1,0 +1,17 @@
+FOTOS DE SUCURSALES
+===================
+
+Coloca aquí la foto de cada sucursal con estos nombres exactos
+(en minúsculas, sin acentos ni espacios):
+
+  toluca.jpg    -> Sucursal / Matriz Toluca
+  tijuana.jpg   -> Sucursal Tijuana
+
+Formato recomendado: JPG horizontal, aprox. 800 x 500 px (relacion 16:10).
+
+Cuando pongas los archivos con esos nombres, la foto aparece sola en la
+tarjeta de la sucursal. Mientras no exista el archivo, se muestra el logo
+de GRUMEX con el texto "Foto proximamente".
+
+Para agregar mas sucursales o cambiar los nombres de archivo, edita
+src/components/sections/Sucursales.tsx (campo "imagen" de cada sucursal).

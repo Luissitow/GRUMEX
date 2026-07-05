@@ -6,6 +6,7 @@ import Boxwell from '@/components/sections/Boxwell'
 import ClientsSlider from '@/components/sections/ClientsSlider'
 import CasosExito from '@/components/sections/CasosExito'
 import Contador from '@/components/sections/Contador'
+import Sucursales from '@/components/sections/Sucursales'
 import Contacto from '@/components/sections/Contacto'
 import Reveal from '@/components/ui/Reveal'
 
@@ -40,6 +41,10 @@ export default function HomePage() {
 
       <Reveal>
         <Contador />
+      </Reveal>
+
+      <Reveal>
+        <Sucursales />
       </Reveal>
 
       <Reveal>
